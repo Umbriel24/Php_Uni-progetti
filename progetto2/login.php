@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "Login riuscito!";
                 //Sessione e "trasportiamo" l'id utente.
                 $_SESSION['id_utente'] = $row['id_utente'];
+                $_SESSION['nome'] = $row['nome'];
                 sleep(1);
                 header('Location: homepage.php');
                 exit;

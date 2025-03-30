@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "</pre>";
 
     //Obbligatori di utente
+    $nome = $_POST['nome'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $tipo_utente = $_POST['tipo_utente'];
@@ -28,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($db->isconnected()) {
         //Post in utente
-        $query = "INSERT INTO progetto2_Utente (email, password) VALUES (?, ?)";
+        $query = "INSERT INTO progetto2_Utente (nome, email, password) VALUES (?, ?, ?)";
         $stmt = $db->prepare($query);
         if ($stmt) {
-            $result = $db->Execute($stmt, [$email, $password]);
+            $result = $db->Execute($stmt, [$nome, $email, $password]);
 
             if ($result) {
                 echo "Registrazione avvenuta con successo in Utente.";
@@ -96,6 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <h2>Registrati</h2>
 <p> <a href="index.php">Clicca qui per tornare indietro </a> </p>
 <form method="post">
+
+    <label>Nome:</label>
+    <input type="text" name="nome" required><br>
     <label>Email:</label>
     <input type="email" name="email" required><br>
     <label>Password:</label>
