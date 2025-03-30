@@ -12,4 +12,8 @@ if($db->isConnected()) {
 } else {
     echo "Errore di connessionee";
 }
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET')
 ?>
+
+

@@ -13,7 +13,7 @@ if (!$db->isconnected()) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo "<pre>";
+    echo "<pre> Debug:";
     var_dump($_POST);
     echo "</pre>";
 

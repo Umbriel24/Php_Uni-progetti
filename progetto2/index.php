@@ -15,14 +15,7 @@ session_start();
         <h1>Benvenuto nella webapp Pay Steam</h1>
         <p>Accedi o registrati se non hai ancora un account</p>
 
-        <form action="login.php" method="post">
-            <label for="email">Email</label>
-            <input type="email" name="email" required>
-
-            <label for="password">Password</label>
-            <input type="password" name="password" required>
-            <button type="submit">Accedi</button>
-        </form>
+        <p>Hai già un account?<a href="login.php">Vai alla pagina di login</a></p>
 
         <p>Non hai ancora un account? <a href="registrazione.php"> Clicca qui per registrarti</a> </p>
     </div>
