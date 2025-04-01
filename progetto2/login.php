@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!-- Form HTML -->
 <p><a href="index.php">Torna all'index</a></p>
 
-<p>Debug LOGIN ESERCENTE: EsercenteTest@gmail.com </p>
-<p>DEBUG PASS:  1234</p>
+<p>Debug LOGIN ESERCENTE: abunda@gmail.com </p>
+<p>DEBUG PASS:  abundala</p>
 <div></div>
 <p>Debug LOGIN ACQUIRENTE: TestAccount@gmail.com </p>
 <p>DEBUG PASS:  1234</p>

@@ -2,6 +2,8 @@
 require __DIR__ .  '/../CartellaDB/database.php';
 
 //GET QUERY
+
+//Acquirente---
 function getMovimentiInAttesa($id_contoCorrente)
 {
     $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_acquirente = $id_contoCorrente && esito_transazione = 'in attesa'";
@@ -21,6 +23,29 @@ function getMovimentiRifiutati($id_contoCorrente)
     $risultato = EseguiQuery($query);
     return $risultato;
 }
+//Acquirente---
+
+//Esercente---
+function getMovimentiInAttesaEsercente($id_contoCorrente)
+{
+    $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_esercente = $id_contoCorrente && esito_transazione = 'in attesa'";
+    $risultato = EseguiQuery($query);
+    return $risultato;
+}
+
+function getMovimentiConfermatiEsercente($id_contoCorrente){
+    $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_esercente = $id_contoCorrente && esito_transazione = 'confermata'";
+    $risultato = EseguiQuery($query);
+    return $risultato;
+}
+
+function getMovimentiRifiutatiEsercente($id_contoCorrente)
+{
+    $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_esercente = $id_contoCorrente && esito_transazione = 'rifiutata'";
+    $risultato = EseguiQuery($query);
+    return $risultato;
+}
+//Esercente---
 
 function getIdContoByIdUtente($id_utente)
 {
@@ -90,5 +115,19 @@ function Verifica_UtenteEsercente($id_utente): bool
         $row = $risultato->FetchRow();
         return ($row['conteggio'] > 0);
     }
+    return false;
+}
+
+//Function check (non esiste in questa versione di MariaDB
+function CheckSaldoAcquirente($id_transazione) {
+    $query = "SELECT id_conto_acquirente, importo FROM progetto2_Transazione WHERE id_transazione = $id_transazione";
+    $risultatoQuery = EseguiQuery($query);
+    $id_conto_acquirente = $risultatoQuery->fields['id_conto_acquirente'];
+    $importo = $risultatoQuery->fields['importo'];
+
+    $query2 = "SELECT saldo from progetto2_ContoCorrente WHERE id_contocorrente = $id_conto_acquirente";
+    $risultato = EseguiQuery($query2);
+    $saldo = $risultato->fields['saldo'];
+    if($saldo >= $importo) return true;
     return false;
 }

@@ -17,9 +17,9 @@ $saldo = getSaldoById($_SESSION['id_utente']);
 $id_contoCorrente = getIdContoByIdUtente($_SESSION['id_utente']);
 
 //Ottieni movimenti da conto
-$queryMovimentiInAttesa = getMovimentiInAttesa($id_contoCorrente);
-$queryMovimentiConfermati =  getMovimentiConfermati($id_contoCorrente);
-$queryMovimentiRifiutati = getMovimentiRifiutati($id_contoCorrente);
+$queryMovimentiInAttesa = getMovimentiInAttesaEsercente($id_contoCorrente);
+$queryMovimentiConfermati =  getMovimentiConfermatiEsercente($id_contoCorrente);
+$queryMovimentiRifiutati = getMovimentiRifiutatiEsercente($id_contoCorrente);
 
 ?>
 
@@ -101,6 +101,23 @@ $queryMovimentiRifiutati = getMovimentiRifiutati($id_contoCorrente);
     }
     ?>
 </div>
+
+<h2>Effettua operazioni:</h2>
+
+<h3>Conferma transazione:</h3>
+<form method="POST">
+    <div>
+        <label>Id transazione</label>
+        <input name="id_utente" required>
+    </div>
+    <div>
+        <label><input type="radio" name="azione" value="conferma" required>Conferma</label>
+        <label><input type="radio" name="azione" value="rifiuta"  >Rifiuta</label>
+    </div>
+    <button name="submit">Conferma</button>
+</form>
+
+
 </body>
 
 
