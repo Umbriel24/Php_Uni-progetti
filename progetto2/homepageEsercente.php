@@ -9,6 +9,18 @@ if(!isset($_SESSION['id_utente']) && !isset($_SESSION['nome'])){
     exit;
 }
 
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['azione'])){
+    $id_transazione = $_POST['id'] ?? null;
+    $azione = $_POST['azione'] ?? null; // confermato - rifiutato;
+
+
+
+    if($azione == 'conferma' && CheckSaldoAcquirente($id_transazione)) {
+        UpdateTransazione($id_transazione, $azione);
+    } else if ($azione == 'rifiuta'){
+        UpdateTransazione($id_transazione, $azione);
+    }
+}
 //printa il saldo
 $saldo = getSaldoById($_SESSION['id_utente']);
 //printaMovimenti
@@ -104,17 +116,19 @@ $queryMovimentiRifiutati = getMovimentiRifiutatiEsercente($id_contoCorrente);
 
 <h2>Effettua operazioni:</h2>
 
-<h3>Conferma transazione:</h3>
+<h3>Gestisci transazioni in attesa:</h3>
 <form method="POST">
     <div>
-        <label>Id transazione</label>
-        <input name="id_utente" required>
+
+        <label for="Id transazione">
+            <input type="number" name="id" required>
+        </label>
     </div>
     <div>
         <label><input type="radio" name="azione" value="conferma" required>Conferma</label>
         <label><input type="radio" name="azione" value="rifiuta"  >Rifiuta</label>
     </div>
-    <button name="submit">Conferma</button>
+    <button type="submit" name="submit">Conferma</button>
 </form>
 
 

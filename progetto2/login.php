@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <p>Debug LOGIN ACQUIRENTE: TestAccount@gmail.com </p>
 <p>DEBUG PASS:  1234</p>
 
-<form method="POST" action="">
+<form method="POST">
     <div>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>

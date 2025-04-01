@@ -99,6 +99,27 @@ function RegistraUtente($nome, $email, $password, $tipo_utente, $codice_fiscale 
     return EseguiQuery($query2);
 }
 
+//UPDATE QUERY
+function UpdateTransazione($id_transazione, $azione){
+    if($azione == 'conferma'){
+        $query = "
+        UPDATE progetto2_Transazione 
+        SET esito_transazione = 'confermata'
+        WHERE id_transazione = $id_transazione
+        ";
+
+        EseguiQuery($query);
+    } else if ($azione == 'rifiuta'){
+        $query = "
+        UPDATE progetto2_Transazione 
+        SET esito_transazione = 'rifiutata'
+        WHERE id_transazione = $id_transazione
+        ";
+
+        EseguiQuery($query);
+    }
+    header('Location: homepageEsercente.php');
+}
 //Function Count
 function Verifica_UtenteEsercente($id_utente): bool
 {
@@ -118,7 +139,8 @@ function Verifica_UtenteEsercente($id_utente): bool
     return false;
 }
 
-//Function check (non esiste in questa versione di MariaDB
+//Function check (non esiste il check in questa versione di MariaDB)
+
 function CheckSaldoAcquirente($id_transazione) {
     $query = "SELECT id_conto_acquirente, importo FROM progetto2_Transazione WHERE id_transazione = $id_transazione";
     $risultatoQuery = EseguiQuery($query);
@@ -130,4 +152,8 @@ function CheckSaldoAcquirente($id_transazione) {
     $saldo = $risultato->fields['saldo'];
     if($saldo >= $importo) return true;
     return false;
+}
+
+function CheckStatoTransazione($id_transazione) {
+    $query = "SELECT ";
 }
