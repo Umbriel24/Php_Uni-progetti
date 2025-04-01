@@ -13,13 +13,12 @@ $saldo = getSaldoById($_SESSION['id_utente']);
 //printaMovimenti
 
 //Ottieni id conto da id utente
-
 $id_contoCorrente = getIdContoByIdUtente($_SESSION['id_utente']);
 
 //Ottieni movimenti da conto
-$queryMovimentiInAttesa = getMovimentiInAttesa(getidcontoByIdUtente($_SESSION['id_utente']));
-$queryMovimentiConfermati =  getMovimentiConfermati($_SESSION['id_utente']);
-$queryMovimentiRifiutati = getMovimentiRifiutati($_SESSION['id_utente']);
+$queryMovimentiInAttesa = getMovimentiInAttesa($id_contoCorrente);
+$queryMovimentiConfermati =  getMovimentiConfermati($id_contoCorrente);
+$queryMovimentiRifiutati = getMovimentiRifiutati($id_contoCorrente);
 
 
 ?>
