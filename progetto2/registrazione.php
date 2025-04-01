@@ -122,5 +122,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <input type="submit" value="Registrati">
 </form>
+
+<p> Registrandoti, accetti le condizioni</p>
+<p>TODO AGGIUNGERE CONDIZIONI</p>
 </body>
 </html>

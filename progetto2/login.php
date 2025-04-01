@@ -1,6 +1,7 @@
 ﻿<?php
 session_start();
 require 'dbAccess.php';
+require 'ComandiSQL/Sql_GetQuery.php';
 include 'ADOdb-5.22.8/adodb.inc.php';
 
 $driver = 'mysqli';
@@ -18,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Evitiamo sql injection mettendo tutto in escape
     $email = $db->qStr($_POST["email"]);
+    $email = trim($email); //Elimiamo spazii, m'incasina il debug
+
     $password = $_POST["password"];
 
-    $query = "SELECT * FROM progetto2_Utente where email = $email";
-
-    $result = $db->Execute($query);
+    $result = $db->Execute(getTuplaUtenteByEmail($email));
 
     if (!$result) {
         echo "Errore nella query al primo passaggio. " . $db->ErrorMsg();
@@ -41,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 echo "Login non valido!";
             }
-        } else echo "Login non valido - debug in result->EOF";
+        } else echo "Login non valido";
     }
 }
 ?>
@@ -49,8 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!-- Form HTML -->
 <p><a href="index.php">Torna all'index</a></p>
 
-<p>DEBUG: email umberto1@gmail.com</p>
-<p>pass 1112</p>
+<p>Debug LOGIN ESERCENTE: EsercenteTest@gmail.com </p>
+<p>DEBUG PASS:  1234</p>
+<div></div>
+<p>Debug LOGIN ACQUIRENTE: TestAccount@gmail.com </p>
+<p>DEBUG PASS:  1234</p>
 
 <form method="POST" action="">
     <div>

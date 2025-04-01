@@ -1,18 +1,6 @@
 ﻿<?php
 session_start();
-require 'dbAccess.php';
-include 'ADOdb-5.22.8/adodb.inc.php';
-
-$driver = 'mysqli';
-$db = newAdoConnection($driver);
-
-$db->connect('localhost', $argUsername, $argPassword, $argDatabase);
-
-if (!$db->isconnected()) {
-    echo "Errore di connessione al database: " . $db->ErrorMsg();
-    exit;
-}
-
+require 'ComandiSQL/Sql_GetQuery.php';
 
 
 if(!isset($_SESSION['id_utente']) && !isset($_SESSION['nome'])){
@@ -21,19 +9,21 @@ if(!isset($_SESSION['id_utente']) && !isset($_SESSION['nome'])){
     exit;
 }
 
-$id_utente = $_SESSION['id_utente'];
-$nome = $_SESSION['nome'];
+//printa il saldo
+$saldo = getSaldoById($_SESSION['id_utente']);
+//printaMovimenti
 
-//Query senza parametri. TODO ricordati di mettere i parametri alla query.
-$saldo_Result = $db->Execute("SELECT saldo from progetto2_ContoCorrente WHERE id_utente = $id_utente");
+//Ottieni id conto da id utente
+
+$id_contoCorrente = getIdContoByIdUtente($_SESSION['id_utente']);
+
+//Ottieni movimenti da conto
 
 
-
-$row = $saldo_Result->FetchRow();
-$saldo = $row['saldo'];
 ?>
 
-<h1>Benvenuto alla homepage, <?php echo $nome; ?></h1>
+<h1>Benvenuto alla homepage, <?php echo $_SESSION['id_utente']; ?></h1>
 <p>Se vuoi uscire dalla sessione <a href="login.php">Clicca qui</a> </p>
 
-<p>Ecco i tuoi dati <?php echo $saldo ?></p>
+<p>Ecco i tuoi dati <?php echo $saldo ?>€</p>
+<p>Ciao  <?php echo $id_contoCorrente ?></p>
