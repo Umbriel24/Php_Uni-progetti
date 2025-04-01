@@ -1,5 +1,4 @@
 ﻿<?php
-session_start();
 require 'ComandiSQL/Sql_GetQuery.php';
 
 

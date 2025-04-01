@@ -1,6 +1,6 @@
 ﻿<?php
 session_start();
-require 'dbAccess.php';
+require_once 'dbAccess.php';
 include  __DIR__ . '/../ADOdb-5.22.8/adodb.inc.php';
 
 

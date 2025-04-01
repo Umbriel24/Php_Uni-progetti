@@ -1,16 +1,6 @@
 ﻿<?php
-require 'dbAccess.php';
-include 'ADOdb-5.22.8/adodb.inc.php';
+require_once __DIR__ .'/ComandiSQL/Sql_GetQuery.php';
 
-$driver = 'mysqli';
-$db = newAdoConnection($driver);
-
-$db->connect('localhost', $argUsername, $argPassword, $argDatabase);
-
-if (!$db->isconnected()) {
-    echo "Errore di connessione al database: " . $db->ErrorMsg();
-    exit;
-}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "<pre> Debug:";
@@ -27,37 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $codice_fiscale = $_POST['codice_fiscale'];
     $partita_iva = $_POST['partita_iva'];
 
-    if ($db->isconnected()) {
-        //Post in utente
-        $query = "INSERT INTO progetto2_Utente (nome, email, password) VALUES (?, ?, ?)";
-        $stmt = $db->prepare($query);
-        if ($stmt) {
-            $result = $db->Execute($stmt, [$nome, $email, $password]);
-
-            if ($result) {
-                echo "Registrazione avvenuta con successo in Utente.";
-            } else {
-                echo "Errore durante la registrazione in Utente. Riprova: " . $db->ErrorMsg();
-            }
-
-
-            if ($result) {
-                //prendi id utente
-                $id_utente = $db->Insert_ID();
-                if ($tipo_utente == 'acquirente' && !empty($codice_fiscale)) {
-                    $db->Execute("INSERT INTO progetto2_Acquirente (id_acquirente, codice_fiscale) VALUES (?, ?)", [$id_utente, $codice_fiscale]);
-                } else if ($tipo_utente == 'esercente') { //Potrebbe essere un else normale, ma per controllo mettiamo else if.
-                    $db->Execute("INSERT INTO progetto2_Esercente (id_esercente, partita_iva) VALUES(?, ?)", [$id_utente, $partita_iva]);
-                }
-
-                echo " Registrazione avvenuta con successo in Esercente o Acquirente. <a href=index.php>Accedi</a>";
-
-            } else {
-                echo "Errore durante la registrazione in fase di post in acquirente o esercente. Riprova";
-            }
-        } else {
-            echo "Errore di connessione al Db.";
-        }
+    if (RegistraUtente($nome, $email, $password, $tipo_utente, $codice_fiscale, $partita_iva)) {
+        echo "Registrazione completata! <a href='index.php'>Accedi</a>";
+    } else {
+        echo "Errore durante la registrazione";
     }
 }
 ?>

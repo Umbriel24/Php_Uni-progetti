@@ -1,48 +1,39 @@
 ﻿<?php
-session_start();
-require 'dbAccess.php';
-require 'ComandiSQL/Sql_GetQuery.php';
-include 'ADOdb-5.22.8/adodb.inc.php';
+require_once __DIR__ .'/ComandiSQL/Sql_GetQuery.php';
 
-$driver = 'mysqli';
-$db = newAdoConnection($driver);
 
-$db->connect('localhost', $argUsername, $argPassword, $argDatabase);
-
-if (!$db->isconnected()) {
-    echo "Errore di connessione al database: " . $db->ErrorMsg();
-    exit;
-}
 
 //non usiamo get per problemi di sicurezza (anche se è pura esercitazione universitaria, quindi ambiente sicuro)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Evitiamo sql injection mettendo tutto in escape
-    $email = $db->qStr($_POST["email"]);
-    $email = trim($email); //Elimiamo spazii, m'incasina il debug
-
+    $email = trim($_POST["email"]);
     $password = $_POST["password"];
 
-    $result = $db->Execute(getTuplaUtenteByEmail($email));
+
+    if (empty($email) || empty($password)) {
+        die("Email e password sono obbligatorie");
+    }
+
+
+    $result = getRowUtenteById($email);
 
     if (!$result) {
-        echo "Errore nella query al primo passaggio. " . $db->ErrorMsg();
+        echo "Errore nella query al primo passaggio. ";
     } else {
-        if(!$result->EOF) {
-            $row = $result->FetchRow();
-            if($row['password'] == $password) {
-                echo "Login riuscito!";
-                //Sessione e "trasportiamo" l'id utente.
-                $_SESSION['id_utente'] = $row['id_utente'];
-                $_SESSION['nome'] = $row['nome'];
-                sleep(1);
-                header('Location: homepage.php');
-                exit;
+        $row = $result->FetchRow();
+        if ($row['password'] == $password) {
+            echo "Login riuscito!";
+            //Sessione e "trasportiamo" l'id utente.
+            $_SESSION['id_utente'] = $row['id_utente'];
+            $_SESSION['nome'] = $row['nome'];
+            sleep(1);
+            header('Location: homepage.php');
+            exit;
 
-            } else {
-                echo "Login non valido!";
-            }
-        } else echo "Login non valido";
+        } else {
+            echo "Login non valido!";
+        }
     }
 }
 ?>
