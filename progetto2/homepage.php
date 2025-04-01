@@ -22,7 +22,9 @@ $queryMovimentiRifiutati = getMovimentiRifiutati($id_contoCorrente);
 
 
 ?>
-
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+</head>
 <h1>Benvenuto alla homepage, <?php echo $_SESSION['nome']; ?></h1>
 <p>Se vuoi uscire dalla sessione <a href="login.php">Clicca qui</a> </p>
 

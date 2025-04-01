@@ -48,6 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <!-- Form HTML -->
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+</head>
 <p><a href="index.php">Torna all'index</a></p>
 
 <p>Debug LOGIN ESERCENTE: abunda@gmail.com </p>

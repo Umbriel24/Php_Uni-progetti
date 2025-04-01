@@ -34,6 +34,13 @@ $queryMovimentiConfermati =  getMovimentiConfermatiEsercente($id_contoCorrente);
 $queryMovimentiRifiutati = getMovimentiRifiutatiEsercente($id_contoCorrente);
 
 ?>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+</head>
 
 <body>
 <p>DEBUG: Stai in homepage Esercente</p>
@@ -41,7 +48,7 @@ $queryMovimentiRifiutati = getMovimentiRifiutatiEsercente($id_contoCorrente);
 <h1>Benvenuto alla homepage, <?php echo $_SESSION['nome']; ?></h1>
 <p>Se vuoi uscire dalla sessione <a href="login.php">Clicca qui</a> </p>
 
-<p>Ecco i tuoi dati <br> Saldo: <?php echo $saldo ?>€</p>
+<h3>Ecco i tuoi dati <br> Saldo: <?php echo $saldo ?>€</h3>
 
 <div>
     <p>Movimenti in attesa:</p>
@@ -65,6 +72,8 @@ $queryMovimentiRifiutati = getMovimentiRifiutatiEsercente($id_contoCorrente);
         echo '<div class="alert">Nessuna transazione in attesa</div>';
     }
     ?>
+
+
 </div>
 <div>
     <p>Movimenti confermati:
@@ -118,10 +127,10 @@ $queryMovimentiRifiutati = getMovimentiRifiutatiEsercente($id_contoCorrente);
 
 <h3>Gestisci transazioni in attesa:</h3>
 <form method="POST">
-    <div>
+    <div class="mb-3">
 
-        <label for="Id transazione">
-            <input type="number" name="id" required>
+        <label for="Id transazione" >
+            <input type="number" name="id" class="form-control" required>
         </label>
     </div>
     <div>
@@ -130,8 +139,5 @@ $queryMovimentiRifiutati = getMovimentiRifiutatiEsercente($id_contoCorrente);
     </div>
     <button type="submit" name="submit">Conferma</button>
 </form>
-
-
 </body>
-
-
+</html>
