@@ -2,16 +2,11 @@
 require __DIR__ .  '/../CartellaDB/database.php';
 
 //GET QUERY
-function getMovimentiEsercente($id_conto_esercente)
+function getMovimentiInAttesa($id_contoCorrente)
 {
-    //tramite id utente prendi id conto in contocorrente
-    //tramite id contocorrente stampo tutti i movimenti in id conto esercente
-    return "SELECT * FROM progetto2_Transazione WHERE id_conto_esercente = $id_conto_esercente";
-}
-
-function getMovimentiAcquirente($id_conto_acquirente)
-{
-    return  "SELECT * FROM progetto2_Transazione WHERE id_conto_acquirente = $id_conto_acquirente";
+    $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_acquirente = 3 && esito_transazione = 'in attesa'";
+    $risultato = EseguiQuery($query);
+    return $risultato;
 }
 
 function getIdContoByIdUtente($id_utente)
