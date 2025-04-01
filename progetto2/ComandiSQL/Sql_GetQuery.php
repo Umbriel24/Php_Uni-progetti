@@ -4,7 +4,20 @@ require __DIR__ .  '/../CartellaDB/database.php';
 //GET QUERY
 function getMovimentiInAttesa($id_contoCorrente)
 {
-    $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_acquirente = 3 && esito_transazione = 'in attesa'";
+    $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_acquirente = $id_contoCorrente && esito_transazione = 'in attesa'";
+    $risultato = EseguiQuery($query);
+    return $risultato;
+}
+
+function getMovimentiConfermati($id_contoCorrente){
+    $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_acquirente = $id_contoCorrente && esito_transazione = 'confermata'";
+    $risultato = EseguiQuery($query);
+    return $risultato;
+}
+
+function getMovimentiRifiutati($id_contoCorrente)
+{
+    $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_acquirente = $id_contoCorrente && esito_transazione = 'rifiutata'";
     $risultato = EseguiQuery($query);
     return $risultato;
 }
@@ -61,3 +74,21 @@ function RegistraUtente($nome, $email, $password, $tipo_utente, $codice_fiscale 
     return EseguiQuery($query2);
 }
 
+//Function Count
+function Verifica_UtenteEsercente($id_utente): bool
+{
+    $query = "
+    select count(*) as conteggio
+    from progetto2_Utente as U
+    join progetto2_Esercente as E 
+    on U.id_utente = E.id_esercente
+    WHERE U.id_utente = $id_utente";
+
+    $risultato = EseguiQuery($query);
+
+    if ($risultato && !$risultato->EOF) {
+        $row = $risultato->FetchRow();
+        return ($row['conteggio'] > 0);
+    }
+    return false;
+}

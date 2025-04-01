@@ -28,8 +28,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['id_utente'] = $row['id_utente'];
             $_SESSION['nome'] = $row['nome'];
             sleep(1);
-            header('Location: homepage.php');
-            exit;
+
+            if(Verifica_UtenteEsercente($_SESSION['id_utente'])){
+                //Se è esercente, viene trasferito alla sua homepage dedicata.
+                header('Location: homepageEsercente.php');
+                exit;
+            } else {
+                //Se non è esercente, il server trasferisce il client alla homepage classica
+                header('Location: homepage.php');
+                exit;
+            }
+
 
         } else {
             echo "Login non valido!";
