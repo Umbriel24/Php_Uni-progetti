@@ -4,192 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Prodotto semi finito">
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/SECURITY.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-active-record.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-active-recordx.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-csvlib.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-datadict.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-error.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-errorhandler.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-errorpear.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-exceptions.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-lib.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-loadbalancer.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-memcache.lib.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-pager.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-pear.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-perf.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-time.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-xmlschema.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb-xmlschema03.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/adodb.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-access.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-db2.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-firebird.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-generic.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-ibase.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-informix.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-mssql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-mssqlnative.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-mysql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-oci8.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-postgres.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-sapdb.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-sqlite.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/datadict/datadict-sybase.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/docs/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/docs/adodb.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/docs/adodb2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/docs/changelog.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/docs/changelog_v2.x.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/docs/changelog_v3.x.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/docs/changelog_v4+5.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/docs/changelog_v4.x.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-access.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-ado.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-ado5.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-ado_access.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-ado_mssql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-ads.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-borland_ibase.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-csv.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-db2.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-db2oci.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-db2ora.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-fbsql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-firebird.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-ibase.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-informix.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-informix72.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-ldap.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-mssql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-mssql_n.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-mssqlnative.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-mssqlpo.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-mysqli.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-netezza.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-oci8.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-oci805.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-oci8po.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-oci8quercus.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-odbc.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-odbc_db2.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-odbc_mssql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-odbc_mssql2012.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-odbc_oracle.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-odbtp.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-odbtp_unicode.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-oracle.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-pdo.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-pdo_dblib.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-pdo_firebird.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-pdo_mssql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-pdo_mysql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-pdo_oci.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-pdo_pgsql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-pdo_sqlite.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-pdo_sqlsrv.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-postgres.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-postgres64.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-postgres7.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-postgres8.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-postgres9.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-proxy.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-sapdb.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-sqlanywhere.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-sqlite.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-sqlite3.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-sqlitepo.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-sybase.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-sybase_ase.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-text.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/drivers/adodb-vfp.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-ar.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-bg.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-ca.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-cn.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-cz.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-da.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-de.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-en.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-eo.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-es.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-fa.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-fr.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-hu.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-id.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-it.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-ka.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-nl.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-oc.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-pl.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-pt-br.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-ro.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-ru.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-sv.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-th.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/lang/adodb-uk.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/pear/Auth/Container/ADOdb.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/pear/auth_adodb_example.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/pear/readme.Auth.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/perf/perf-db2.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/perf/perf-informix.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/perf/perf-mssql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/perf/perf-mssqlnative.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/perf/perf-mysql.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/perf/perf-oci8.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/perf/perf-postgres.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/perf/perf-sqlite3.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/phpdoc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/phpdoc.dist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/pivottable.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/rsfilter.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-compress-bzip2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-compress-gzip.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-cryptsession.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-cryptsession2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-encrypt-mcrypt.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-encrypt-md5.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-encrypt-secret.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-encrypt-sha1.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-sess.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-session-clob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-session-clob2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-session.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-session2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-sessions.mysql.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-sessions.oracle.clob.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/adodb-sessions.oracle.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/crypt.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/old/adodb-cryptsession.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/old/adodb-session-clob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/old/adodb-session.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/old/crypt.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/session_schema.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/session/session_schema2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/toexport.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/tohtml.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/xmlschema.dtd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/xmlschema03.dtd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/xsl/convert-0.1-0.2.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/xsl/convert-0.1-0.3.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/xsl/convert-0.2-0.1.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/xsl/convert-0.2-0.3.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/xsl/remove-0.2.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ADOdb-5.22.8/xsl/remove-0.3.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/CartellaDB/database.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/CartellaDB/dbAccess.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/ComandiSQL/comandiSQL.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/prenotaBiglietto.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/registrazione.php" afterDir="false" />
+    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Login e registrazione sito1 fatto">
+      <change afterPath="$PROJECT_DIR$/progetto1/amministrazione.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/esercizio.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,7 +105,7 @@
       <workItem from="1743459271991" duration="10148000" />
       <workItem from="1743512288022" duration="11027000" />
       <workItem from="1743536540476" duration="4249000" />
-      <workItem from="1743621983236" duration="2923000" />
+      <workItem from="1743621983236" duration="5870000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -376,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743539570796</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Login e registrazione sito1 fatto">
+      <option name="closed" value="true" />
+      <created>1743625104545</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743625104545</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,6 +220,7 @@
     <MESSAGE value="Quasi finito di mettere transazioni" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Prodotto semi finito" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prodotto semi finito" />
+    <MESSAGE value="Login e registrazione sito1 fatto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login e registrazione sito1 fatto" />
   </component>
 </project>

@@ -20,10 +20,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $risultatoRow = $risultato->FetchRow();
         if($risultatoRow['password'] == $password){
             echo 'Login Riuscito';
-            $_Session['utente'] = $risultatoRow;
-            $_Session['nome'] = $risultatoRow['nome'];
-            sleep(1);
-            header("Location:prenotaBiglietto.php");
+
+            switch ($email){
+                case 'amministrazione@gmail.com':
+                    sleep(1);
+                    header("Location:amministrazione.php");
+                    exit();
+                    break;
+                case 'esercizio@gmail.com':
+                    sleep(1);
+                    header("Location:esercizio.php");
+                    exit();
+                    break;
+                default:
+                    $_Session['utente'] = $risultatoRow;
+                    $_Session['nome'] = $risultatoRow['nome'];
+                    sleep(1);
+                    header("Location:prenotaBiglietto.php");
+                    exit();
+            }
         }
     }
 }
@@ -41,7 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
 <div>Login</div>
-<p>Debug: <br>Email: Test@gmail.com <br>Password: Test</p>
+<p>Debug: <br>Email: Test@gmail.com <br>Password: Test</p><br>
+<p>Esercizio: <br>Email: amministrazione@gmail.com <br>Password: 1234</p><br>
+<p>Amministrazione: <br>Email: esercizio@gmail.com <br>Password: 1234</p>
 
 <form method="POST">
     <div>
