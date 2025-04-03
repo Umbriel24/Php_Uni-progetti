@@ -29,20 +29,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     //In ordine
     // Comp.Locomotrice -> in_attività diventa si
     UpdateAttivitàLocomotrice($locomotrice);
+    echo 'Attività locomotice updatata nel db';
 
     // Aggiungiamo new entry in Convoglio con id_ref_locomotiva precedentemente trovata.
     CreazioneConvoglio($locomotrice);
+
+    echo 'Convoglio creato nel db';
 
     $id_locomotrice = getId_locomotrice_By_Codice($locomotrice);
     $id_ref_locomotiva = $id_locomotrice;
 
     // Ogni singola carrozza viene associata all'id Convoglio
     for($i = 0; $i < count($carrozze); $i++){
-        //Updateid_convoglio_Di_Carrozza($carrozze[$i], $id_ref_locomotiva);
-        UpdateAttivitàCarrozza('si', $carrozze[$i]);
+
+        echo '<br>';
+        echo $carrozze[$i];
+        echo '<br>';
+        echo $id_ref_locomotiva;
+        echo '<br>';
+
+        $id_temp = Convoglio_getIdconvoglio_By_refLocomotiva($id_ref_locomotiva);
+        $convoglio_row = $id_temp->FetchRow();
+        $convoglio_id = $convoglio_row['id_convoglio'];
+        echo '<br>';
+        Updateid_convoglio_Di_Carrozza($carrozze[$i], $convoglio_id);
+        UpdateAttivitàCarrozza('si', $carrozze[$i]); //QUA
     }
 
-    //Io ho codice_locomotrice. poso prenderne l'id
+
+    echo 'Attività carrozze updatate nel db';
+    echo '<br>';
+    echo 'Creazione convoglio con update nei table correttamente effettuate';
+    sleep(1);
+
+
 }
 
 function checkLocomotriceInattivaByCodice($codice)
@@ -70,15 +90,23 @@ function CheckCarrozzaAttività($id_carrozza){
 }
 
 function Updateid_convoglio_Di_Carrozza($codice_carrozza, $id_convoglio){
-    $query = "UPDATE progetto1_Carrozza SET id_convoglio = $id_convoglio WHERE codice_carrozza = '$codice_carrozza'";
+    //codice_carrozza = CD2
+    //Id_convoglio = 3
+
+    $query = "UPDATE progetto1_Carrozza 
+            SET id_convoglio = $id_convoglio 
+            WHERE codice_carrozza = '$codice_carrozza'";
+
+    echo $query;
     return EseguiQuery($query);
 
 }
 
 function UpdateAttivitàCarrozza($attivita, $id_carrozza)
 {
+    echo '<br>' . $id_carrozza . ' Problema QUI';
     if($attivita != 'si' && $attivita != 'no') die('Attività settata non consentita.');
-    $query = "UPDATE progetto1_Carrozza set in_attività = '$attivita' WHERE codice_carrozza = '$id_carrozza'";
+    $query = "UPDATE progetto1_Carrozza SET in_attività = '$attivita' WHERE codice_carrozza = '$id_carrozza'";
     return EseguiQuery($query);
 }
 
@@ -98,6 +126,12 @@ function CreazioneConvoglio($codice_locomotrice){
     //Mi sono appena accorto che il fuso orario è sbagliato. porta 2 ore indietro, quindi CET (credo)
     $query = "INSERT INTO progetto1_Convoglio(id_ref_locomotiva, data_ora_creazione) VALUES($id_locomotrice, NOW())";
     EseguiQuery($query);
+}
 
+function Convoglio_getIdconvoglio_By_refLocomotiva($id_ref_locomotiva){
+    $query = "SELECT * FROM progetto1_Convoglio WHERE id_ref_locomotiva = $id_ref_locomotiva";
+    echo $query;
+    echo "<br>";
+    return EseguiQuery($query);
 }
 ?>
