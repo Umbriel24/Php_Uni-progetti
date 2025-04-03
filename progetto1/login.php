@@ -1,5 +1,5 @@
 ﻿<?php
-require_once __DIR__ .'/ComandiSQL/comandiSQL.php';
+require_once __DIR__ . '/ComandiSQL/SQLCreazioneUtente.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

@@ -1,13 +1,45 @@
 ﻿<?php
-require __DIR__ . '/../CartellaDB/database.php';
+require_once __DIR__ . '/../CartellaDB/database.php';
 
-//GET
+//CARROZZE
 function getCarrozzeByAttivita($attivita)
 {
     $query = "SELECT * FROM progetto1_Carrozza WHERE in_attività = '$attivita'";
     return EseguiQuery($query);
 }
 
+function getCarrozzeByIdConvoglioAssociato($id_convoglio)
+{
+    $query = "SELECT codice_carrozza, posti_a_sedere from progetto1_Carrozza where id_convoglio = $id_convoglio";
+    return EseguiQuery($query);
+}
+
+function stampaCarrozzeInattive($carrozeInattive)
+{
+    if ($carrozeInattive != null && $carrozeInattive->RecordCount() > 0) {
+        echo '<table>';
+        echo '<tr><th>ID</th><th>Numero di serie</th><th>Posti</th></tr>';
+
+        //corrisponde al foreach di c#
+        while ($row = $carrozeInattive->FetchRow()) {
+            echo '<tr>';
+            echo '<td>' . $row['codice_carrozza'] . '</td>';
+            echo '<td>' . $row['numero_di_serie'] . '</td>';
+            echo '<td>' . $row['posti_a_sedere'] . '</td>';
+            echo '</tr>';
+        }
+
+        echo '</table>';
+    } else {
+        echo '<div class="alert">Nessuna convoglio inattivo.</div>';
+    }
+}
+//---------
+
+
+
+
+//LOCOMOTRICI
 function getLocomotriceByAttivita($attivita)
 {
     $query = "SELECT * FROM progetto1_ComposizioneLocomotrice as c
@@ -17,18 +49,20 @@ function getLocomotriceByAttivita($attivita)
     return EseguiQuery($query);
 }
 
+function getId_locomotrice_By_Codice($codice_locomotrice){
 
-function getConvogliCreati()
-{
-    $query = "SELECT * FROM progetto1_Convoglio";
-    return EseguiQuery($query);
-}
+    $query = "SELECT * FROM progetto1_ComposizioneLocomotrice as c
+            LEFT JOIN progetto1_Locomotiva as l on c.riferimentoLocomotiva = l.id_locomotrice
+            LEFT JOIN progetto1_Automotrice as a on c.riferimentoAutomotiva = a.id_automotrice";
 
+    $result = EseguiQuery($query);
 
-function getCarrozzeByIdConvoglioAssociato($id_convoglio)
-{
-    $query = "SELECT codice_carrozza, posti_a_sedere from progetto1_Carrozza where id_convoglio = $id_convoglio";
-    return EseguiQuery($query);
+    while($row = $result->FetchRow()){
+        if($row['codice_locomotiva'] == $codice_locomotrice || $row["codice_automotrice"] == $codice_locomotrice){
+            return $id_da_updatare = $row["id_locomotrice"];
+        }
+    }
+    die("Errore, locomotrice non trovata con quel codice");
 }
 
 function getLocomotriceBy_ref_locomotrice($ref_locomotrice)
@@ -40,15 +74,51 @@ function getLocomotriceBy_ref_locomotrice($ref_locomotrice)
     $result = EseguiQuery($query);
 
     while ($row = $result->FetchRow()){
-    if ($row['codice_locomotiva'] != null)
-    {
-        return $row['codice_locomotiva'];
-    }
+        if ($row['codice_locomotiva'] != null)
+        {
+            return $row['codice_locomotiva'];
+        }
 
-}
+    }
     return $row['codice_automotrice'];
 
 }
+
+function stampaLocomotriciInattive($locomotriciInattive)
+{
+    if ($locomotriciInattive != null && $locomotriciInattive->RecordCount() > 0) {
+
+        echo '<table>';
+        echo '<tr><th>ID</th><th>Numero di serie</th><th>Posti</th></tr>';
+
+        while ($row = $locomotriciInattive->FetchRow()) {
+            if ($row['id_locomotrice'] != null) {
+                //Locomotiva senza posti
+                echo '<tr>';
+                echo '<td>' . $row['codice_locomotiva'] . '</td>';
+                echo '<td>' . $row['nome'] . '</td>';
+                echo '<td>' . '0' . '</td>';
+                echo '</tr>';
+            } else if ($row['id_automotrice'] != null) {
+                echo '<tr>';
+                echo '<td>' . $row['codice_automotrice'] . '</td>';
+                echo '<td>' . 'N/A' . '</td>';
+                echo '<td>' . $row['posti_a_sedere'] . '</td>';
+                echo '</tr>';
+            }
+        }
+    }
+}
+//---------
+
+
+//CONVOGLI
+function getConvogliCreati()
+{
+    $query = "SELECT * FROM progetto1_Convoglio";
+    return EseguiQuery($query);
+}
+
 
 function StampaConvogliCreati()
 {
@@ -91,53 +161,11 @@ function StampaConvogliCreati()
     }
     echo '</table>';
 }
+//---------
 
 
-//Funzioni echo
-function stampaCarrozzeInattive($carrozeInattive)
-{
-    if ($carrozeInattive != null && $carrozeInattive->RecordCount() > 0) {
-        echo '<table>';
-        echo '<tr><th>ID</th><th>Numero di serie</th><th>Posti</th></tr>';
 
-        //corrisponde al foreach di c#
-        while ($row = $carrozeInattive->FetchRow()) {
-            echo '<tr>';
-            echo '<td>' . $row['codice_carrozza'] . '</td>';
-            echo '<td>' . $row['numero_di_serie'] . '</td>';
-            echo '<td>' . $row['posti_a_sedere'] . '</td>';
-            echo '</tr>';
-        }
 
-        echo '</table>';
-    } else {
-        echo '<div class="alert">Nessuna convoglio inattivo.</div>';
-    }
-}
 
-function stampaLocomotriciInattive($locomotriciInattive)
-{
-    if ($locomotriciInattive != null && $locomotriciInattive->RecordCount() > 0) {
 
-        echo '<table>';
-        echo '<tr><th>ID</th><th>Numero di serie</th><th>Posti</th></tr>';
-
-        while ($row = $locomotriciInattive->FetchRow()) {
-            if ($row['id_locomotrice'] != null) {
-                //Locomotiva senza posti
-                echo '<tr>';
-                echo '<td>' . $row['codice_locomotiva'] . '</td>';
-                echo '<td>' . $row['nome'] . '</td>';
-                echo '<td>' . '0' . '</td>';
-                echo '</tr>';
-            } else if ($row['id_automotrice'] != null) {
-                echo '<tr>';
-                echo '<td>' . $row['codice_automotrice'] . '</td>';
-                echo '<td>' . 'N/A' . '</td>';
-                echo '<td>' . $row['posti_a_sedere'] . '</td>';
-                echo '</tr>';
-            }
-        }
-    }
-}
 
