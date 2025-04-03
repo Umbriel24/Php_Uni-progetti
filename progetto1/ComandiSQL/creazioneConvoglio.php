@@ -38,7 +38,7 @@ function StampaConvogliCreati()
 {
     $ConvogliList = getConvogliCreati();
     echo '<table>';
-    echo '<tr><th>ID</th><th>Posti a sedere</th><th>Carrozze usate</th><th>Data/Ora creazione</th></tr>';
+    echo '<tr><th>ID Convogli Creati</th><th>Posti a sedere</th><th>Carrozze usate</th><th>Data/Ora creazione</th></tr>';
     while ($row = $ConvogliList->FetchRow()) {
         $id_temp = $row["id_convoglio"];
         $dataOraTemp = $row['data_ora_creazione'];
