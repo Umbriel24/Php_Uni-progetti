@@ -17,6 +17,54 @@ function getLocomotriceByAttivita($attivita)
     return EseguiQuery($query);
 }
 
+function getConvogliCreati()
+{
+    $query = "SELECT * FROM progetto1_Convoglio";
+    return EseguiQuery($query);
+}
+function getConvogliCreati_e_carrozze(){
+    $query = "SELECT * from progetto1_Convoglio as co
+            LEFT JOIN progetto1_Carrozza as ca on co.id_convoglio = ca.id_convoglio";
+    return EseguiQuery($query);
+}
+
+function getCarrozzeByIdConvoglioAssociato($id_convoglio)
+{
+    $query = "SELECT codice_carrozza, posti_a_sedere from progetto1_Carrozza where id_convoglio = $id_convoglio";
+    return EseguiQuery($query);
+}
+
+function StampaConvogliCreati()
+{
+    $ConvogliList = getConvogliCreati();
+    echo '<table>';
+    echo '<tr><th>ID</th><th>Posti a sedere</th><th>Carrozze usate</th><th>Data/Ora creazione</th></tr>';
+    while ($row = $ConvogliList->FetchRow()) {
+        $id_temp = $row["id_convoglio"];
+        $dataOraTemp = $row['data_ora_creazione'];
+        $tempListCarrozze = getCarrozzeByIdConvoglioAssociato($id_temp);
+
+        $posti_a_sedere_temp = 0;
+        $codici_carrozze = "";
+        while ($row2 = $tempListCarrozze->FetchRow()) {
+            //Abbiamo ogni carrozza associata all'id convoglio qui
+            $posti_a_sedere_temp += $row2["posti_a_sedere"];
+            $codici_carrozze .= $row2["codice_carrozza"] . ", ";
+        }
+
+        echo '<tr>';
+        echo '<td>' . $id_temp. '</td>';
+        echo '<td>' . $posti_a_sedere_temp . '</td>';
+        echo '<td>' . $codici_carrozze . '</td>';
+        echo '<td>' . $dataOraTemp . '</td>';
+        echo '</tr>';
+
+    }
+    echo '</table>';
+}
+
+
+
 
 //Funzioni echo
 function stampaCarrozzeInattive($carrozeInattive)
@@ -42,6 +90,7 @@ function stampaCarrozzeInattive($carrozeInattive)
 
 function stampaLocomotriciInattive($locomotriciInattive){
     if ($locomotriciInattive != null && $locomotriciInattive->RecordCount() > 0) {
+
         echo '<table>';
         echo '<tr><th>ID</th><th>Numero di serie</th><th>Posti</th></tr>';
 

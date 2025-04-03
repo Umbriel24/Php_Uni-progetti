@@ -19,13 +19,23 @@ require 'ComandiSQL/creazioneConvoglio.php';
 <body>
 <div class="container">
     <h1>Account backoffice esercizio</h1>
-    <p>Ecco i convogli liberi:</p>
     <div>
+        <p> Carrozze libere:</p>
         <?php stampaCarrozzeInattive(getCarrozzeByAttivita('No'));?>
     </div>
-
-    <p>Ecco le locomotive libere:</p>
-    <?php stampaLocomotriciInattive(getLocomotriceByAttivita('No'));?>
 </div>
+<div class="container">
+    <div>
+    <?php stampaLocomotriciInattive(getLocomotriceByAttivita('No'));?>
+    </div>
+</div>
+<div class="container">
+    <div>
+        <p>Ecco i convogli wfwfwf:</p>
+        <?php StampaConvogliCreati();?>
+    </div>
+</div>
+
+
 </body>
 </html>
