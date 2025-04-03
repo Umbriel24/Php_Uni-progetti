@@ -1,5 +1,5 @@
 ﻿<?php
-require 'ComandiSQL/creazioneConvoglio.php';
+require 'ComandiSQL/sqlConvoglio.php';
 //Compone e scompone convogli
 //Costruisce le corse con le tratte e orari.
 //Ogni corsa può essere modificata o cancellata.
@@ -64,33 +64,33 @@ require 'ComandiSQL/creazioneConvoglio.php';
         Una locomotrice con posti può viaggiare da sola </p>
 
 
-    <form method="POST" action="">
+    <form method="POST" action="./validazioneForm/creazioneConvoglio.php">
         <div>
             <h3>Seleziona Locomotrice:</h3>
             <div class="radio-container">
                 <!-- Radio button statici (Dinamici è da pazzi, chiedo venia. non so bene ne js ne php) -->
                 <label>
-                    <input type="radio" name="tipo_selezionato" value="AN56.2">
+                    <input type="radio" name="locomotrice" value="AN56.2">
                     AN56.2
                 </label>
 
                 <label>
-                    <input type="radio" name="tipo_selezionato" value="AN56.4">
+                    <input type="radio" name="locomotrice" value="AN56.4">
                     AN56.4
                 </label>
 
                 <label>
-                    <input type="radio" name="tipo_selezionato" value="SFT.3">
+                    <input type="radio" name="locomotrice" value="SFT.3">
                     SFT.3
                 </label>
 
                 <label>
-                    <input type="radio" name="tipo_selezionato" value="SFT.4">
+                    <input type="radio" name="locomotrice" value="SFT.4">
                     SFT.4
                 </label>
 
                 <label>
-                    <input type="radio" name="tipo_selezionato" value="SFT.6">
+                    <input type="radio" name="locomotrice" value="SFT.6">
                     SFT.6
                 </label>
             </div>

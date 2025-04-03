@@ -17,16 +17,13 @@ function getLocomotriceByAttivita($attivita)
     return EseguiQuery($query);
 }
 
+
 function getConvogliCreati()
 {
     $query = "SELECT * FROM progetto1_Convoglio";
     return EseguiQuery($query);
 }
-function getConvogliCreati_e_carrozze(){
-    $query = "SELECT * from progetto1_Convoglio as co
-            LEFT JOIN progetto1_Carrozza as ca on co.id_convoglio = ca.id_convoglio";
-    return EseguiQuery($query);
-}
+
 
 function getCarrozzeByIdConvoglioAssociato($id_convoglio)
 {
@@ -34,13 +31,44 @@ function getCarrozzeByIdConvoglioAssociato($id_convoglio)
     return EseguiQuery($query);
 }
 
+function getLocomotriceBy_ref_locomotrice($ref_locomotrice)
+{
+    $query = "SELECT * FROM progetto1_ComposizioneLocomotrice as c
+            LEFT JOIN progetto1_Locomotiva as l on c.riferimentoLocomotiva = l.id_locomotrice
+            LEFT JOIN progetto1_Automotrice as a on c.riferimentoAutomotiva = a.id_automotrice
+            WHERE c.id_locomotrice = $ref_locomotrice";
+    $result = EseguiQuery($query);
+
+    while ($row = $result->FetchRow()){
+    if ($row['codice_locomotiva'] != null)
+    {
+        return $row['codice_locomotiva'];
+    }
+
+}
+    return $row['codice_automotrice'];
+
+}
+
 function StampaConvogliCreati()
 {
     $ConvogliList = getConvogliCreati();
+
+    /*
+    while ($row = $ConvogliList->FetchRow()) {
+        foreach ($row as $key => $value) {
+            echo $key . ": " . $value . "\n";
+        }
+    }
+    return;
+    */
+
+
     echo '<table>';
-    echo '<tr><th>ID Convogli Creati</th><th>Posti a sedere</th><th>Carrozze usate</th><th>Data/Ora creazione</th></tr>';
+    echo '<tr><th>ID Convogli </th><th>Locomotrice</th><th>Posti a sedere</th><th>Carrozze usate</th><th>Data/Ora creazione</th></tr>';
     while ($row = $ConvogliList->FetchRow()) {
         $id_temp = $row["id_convoglio"];
+        $locomotrice = getlocomotriceBy_ref_locomotrice($row['id_ref_locomotiva']);
         $dataOraTemp = $row['data_ora_creazione'];
         $tempListCarrozze = getCarrozzeByIdConvoglioAssociato($id_temp);
 
@@ -53,7 +81,8 @@ function StampaConvogliCreati()
         }
 
         echo '<tr>';
-        echo '<td>' . $id_temp. '</td>';
+        echo '<td>' . $id_temp . '</td>';
+        echo '<td>' . $locomotrice . '</td>';
         echo '<td>' . $posti_a_sedere_temp . '</td>';
         echo '<td>' . $codici_carrozze . '</td>';
         echo '<td>' . $dataOraTemp . '</td>';
@@ -62,8 +91,6 @@ function StampaConvogliCreati()
     }
     echo '</table>';
 }
-
-
 
 
 //Funzioni echo
@@ -88,24 +115,25 @@ function stampaCarrozzeInattive($carrozeInattive)
     }
 }
 
-function stampaLocomotriciInattive($locomotriciInattive){
+function stampaLocomotriciInattive($locomotriciInattive)
+{
     if ($locomotriciInattive != null && $locomotriciInattive->RecordCount() > 0) {
 
         echo '<table>';
         echo '<tr><th>ID</th><th>Numero di serie</th><th>Posti</th></tr>';
 
         while ($row = $locomotriciInattive->FetchRow()) {
-            if($row['id_locomotrice'] != null){
+            if ($row['id_locomotrice'] != null) {
                 //Locomotiva senza posti
                 echo '<tr>';
-                echo '<td>' . $row['codice_Locomotiva'] . '</td>';
+                echo '<td>' . $row['codice_locomotiva'] . '</td>';
                 echo '<td>' . $row['nome'] . '</td>';
                 echo '<td>' . '0' . '</td>';
                 echo '</tr>';
-            } else if ($row['id_automotrice'] != null){
+            } else if ($row['id_automotrice'] != null) {
                 echo '<tr>';
                 echo '<td>' . $row['codice_automotrice'] . '</td>';
-                echo '<td>' .'N/A' . '</td>';
+                echo '<td>' . 'N/A' . '</td>';
                 echo '<td>' . $row['posti_a_sedere'] . '</td>';
                 echo '</tr>';
             }
