@@ -23,6 +23,24 @@ function getConnessioneDb(){
     return $db;
 }
 
+function IniziaTransazione(){
+    $db = getConnessioneDb();
+    $db->BeginTrans();
+}
+
+function CommittaTransazione()
+{
+    $db = getConnessioneDb();
+    if (!$db->CommitTrans()) {
+        throw new Exception("Eccezione trovata. " . $db->ErrorMsg());
+    }
+}
+
+function RollbackTransazione()
+{
+ $db = getConnessioneDb();
+ $db->rollbackTrans();
+}
 function EseguiQueryConParametri($query, $parametri = []){
     $db = getConnessioneDb();
 

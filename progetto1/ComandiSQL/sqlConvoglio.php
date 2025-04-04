@@ -55,14 +55,20 @@ function getId_locomotrice_By_Codice($codice_locomotrice){
             LEFT JOIN progetto1_Locomotiva as l on c.riferimentoLocomotiva = l.id_locomotrice
             LEFT JOIN progetto1_Automotrice as a on c.riferimentoAutomotiva = a.id_automotrice";
 
-    $result = EseguiQuery($query);
+    $result = EseguiQuery($query); //sono 5 record (ne sono sicuro)
 
+
+    //Chiedo scusa all'umanità, penso sia il codice più brutto abbia mai scritto
     while($row = $result->FetchRow()){
-        if($row['codice_locomotiva'] == $codice_locomotrice || $row["codice_automotrice"] == $codice_locomotrice){
-            return $id_da_updatare = $row["id_locomotrice"];
+        if($row['codice_locomotiva'] == $codice_locomotrice){
+                return $row["id_locomotrice"];
+
+        } else if ($row["codice_automotrice"] == $codice_locomotrice){
+                return $row["Id_locomotrice"]; //Colonna con lo stesso nome, la mette in mauscolo...
         }
+
     }
-    die("Errore, locomotrice non trovata con quel codice");
+    Throw new Exception("Errore, locomotrice non trovata con quel codice");
 }
 
 function getLocomotriceBy_ref_locomotrice($ref_locomotrice)
@@ -77,10 +83,10 @@ function getLocomotriceBy_ref_locomotrice($ref_locomotrice)
         if ($row['codice_locomotiva'] != null)
         {
             return $row['codice_locomotiva'];
-        }
+        } else return $row['codice_automotrice'];
 
     }
-    return $row['codice_automotrice'];
+
 
 }
 
@@ -144,6 +150,8 @@ function StampaConvogliCreati()
 
         $posti_a_sedere_temp = 0;
         $codici_carrozze = "";
+
+        if($locomotrice == 'AN56.2' || $locomotrice == 'AN56.4') $posti_a_sedere_temp += 56;
         while ($row2 = $tempListCarrozze->FetchRow()) {
             //Abbiamo ogni carrozza associata all'id convoglio qui
             $posti_a_sedere_temp += $row2["posti_a_sedere"];
