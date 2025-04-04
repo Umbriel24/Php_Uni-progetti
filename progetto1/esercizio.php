@@ -64,7 +64,7 @@ require 'ComandiSQL/sqlConvoglio.php';
         Una locomotrice con posti può viaggiare da sola </p>
 
 
-    <form method="POST" action="./validazioneForm/creazioneConvoglio.php">
+    <form method="POST" action="ConvogliComandi/creazioneConvoglio.php">
         <div>
             <h3>Seleziona Locomotrice:</h3>
             <div class="radio-container">
@@ -133,7 +133,14 @@ require 'ComandiSQL/sqlConvoglio.php';
         </div>
         <button type="submit">Crea il convoglio</button>
     </form>
-
 </section>
+
+<br>
+<h3>Elimina Convoglio</h3>
+<form method="POST" action="ConvogliComandi/EliminaConvoglio.php">
+    <label>Inserisci ID convoglio da eliminare<input type="number" name="id_convoglio"></label>
+    <br>
+    <button type="submit">Conferma eliminazione</button>
+</form>
 </body>
 </html>
