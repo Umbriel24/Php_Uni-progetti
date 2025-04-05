@@ -3,6 +3,8 @@ session_start();
 require_once 'dbAccess.php';
 include  __DIR__ . '/../ADOdb-5.22.8/adodb.inc.php';
 
+//Fuso orario sia benedetta sta funzione
+date_default_timezone_set('Europe/Rome');
 
 //Staticamente otteniamo il $db
 function getConnessioneDb(){
@@ -46,7 +48,7 @@ function EseguiQueryConParametri($query, $parametri = []){
 
     $risultato = $db->Execute($query, $parametri);
     if (!$risultato) {
-        die("Errore nella query: " . $db->ErrorMsg());
+        Throw new Exception("Errore nella query: " . $db->ErrorMsg());
     }
     return $risultato;
 }
@@ -56,7 +58,7 @@ function EseguiQuery( $query){
 
     $risultato = $db->Execute($query);
     if (!$risultato) {
-        die("Errore nella query: " . $db->ErrorMsg());
+        Throw new Exception("Errore nella query: " . $db->ErrorMsg());
     }
     return $risultato;
 }

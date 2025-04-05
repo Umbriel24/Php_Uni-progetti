@@ -141,7 +141,7 @@ function StampaConvogliCreati()
 
 
     echo '<table>';
-    echo '<tr><th>ID Convogli </th><th>Locomotrice</th><th>Posti a sedere</th><th>Carrozze usate</th><th>Data/Ora creazione</th></tr>';
+    echo '<tr><th>ID Convoglio </th><th>Locomotrice</th><th>Posti a sedere</th><th>Carrozze usate</th><th>Data/Ora creazione</th></tr>';
     while ($row = $ConvogliList->FetchRow()) {
         $id_temp = $row["id_convoglio"];
         $locomotrice = getlocomotriceBy_ref_locomotrice($row['id_ref_locomotiva']);
@@ -151,6 +151,7 @@ function StampaConvogliCreati()
         $posti_a_sedere_temp = 0;
         $codici_carrozze = "";
 
+        //Fare in modo che convoglio abbia posti a sedere totali che verranno sottratti dai biglietti
         if($locomotrice == 'AN56.2' || $locomotrice == 'AN56.4') $posti_a_sedere_temp += 56;
         while ($row2 = $tempListCarrozze->FetchRow()) {
             //Abbiamo ogni carrozza associata all'id convoglio qui

@@ -40,7 +40,12 @@ require 'ComandiSQL/sqlConvoglio.php';
     </style>
 </head>
 <body>
+<nav>
+    <a href="esercizio.php">Gestione esercizio</a>
+    <a href="GestioneCorse.php">Gestione Corse</a>
+    <a href="index.php">Esci</a>
 
+</nav>
 <h1>Account backoffice esercizio</h1>
 <section>
     <p> Carrozze libere:</p>
