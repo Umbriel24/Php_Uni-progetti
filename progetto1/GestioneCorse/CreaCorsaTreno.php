@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../CartellaDB/database.php';
 require_once __DIR__ . '/../ComandiSQL/sqlConvoglio.php';
 require_once __DIR__ . '/SqlStazione&Tratte.php';
+require_once __DIR__ . '/FunzioniTreno.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -9,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_stazione_partenza = $_POST["id_stazione_partenza"] ?? null;
     $id_stazione_arrivo = $_POST["id_stazione_arrivo"] ?? null;
     $dataOra_partenza = $_POST["dataOra_partenza"] ?? null;
-    $dataOra_arrivo = $_POST["dataOra_arrivo"] ?? null;
 
     echo $id_convoglio;
     echo '<br>';
@@ -22,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo $dataOra_partenza;
     echo '<br>';
 
-    echo $dataOra_arrivo;
     echo '<br>';
     echo '<br>';
 
@@ -38,18 +37,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         IniziaTransazione();
 
         //rendi le datetime compatbili
-        $dataOra_arrivo = RendiDateTimeCompatibile($dataOra_arrivo);
-        $dataOra_partenza = RendiDateTimeCompatibile($dataOra_partenza); //TODO ELIMINA VIENE CALCOLATO DA SOLO
+        $dataOra_partenza = RendiDateTimeCompatibile($dataOra_partenza);
+
+        $distanzaTotaleKm = CalcolaDistanzaTotalePercorsa($id_stazione_arrivo, $id_stazione_partenza);
+        $dataArrivo = CalcolaArrivoByTempoPartenzaEKMTotali($dataOra_partenza, $distanzaTotaleKm);
+        $dataArrivo = RendiDateTimeCompatibile($dataArrivo);
+
 
         //QUERY progetto1_TRENO INSERT
-        CreaTrenoParametrizzato($id_convoglio, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza, $dataOra_arrivo);
+        CreaTrenoParametrizzato($id_convoglio, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza, $dataArrivo);
 
         $id_treno = getIdTrenoFromConvoglioRef($id_convoglio);
 
-
-        $distanzaTotaleKm = CalcolaDistanzaTotalePercorsa($id_stazione_arrivo, $id_stazione_partenza);
-
-        //FINO A QUI CALCOLA BENE
+        //Distanza totale + Ora iniziale calcoliamo il tempo di arrivo
 
 
         //La logica ora è: Calcoliamo l'orario a cui arriva ad ogni stazione.
@@ -97,12 +97,4 @@ function CreaTrenoParametrizzato($id_convoglio, $id_s1, $id_s2, $oraPart, $oraAr
     ]);
 }
 
-function getIdTrenoFromConvoglioRef($id_convoglio){
-    $query = "SELECT id_treno from progetto1_Treno where id_ref_convoglio = $id_convoglio";
-    $result = EseguiQuery($query);
-    $resultArray = $result->FetchRow();
-    if(!$resultArray){
-        Throw new Exception("Errore nella query: Treno non trovato tramite id_convoglio");
-    }
-    else return $resultArray["id_treno"];
-}
+

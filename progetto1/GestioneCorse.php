@@ -1,5 +1,6 @@
 ﻿<?php
 require 'ComandiSQL/sqlConvoglio.php';
+require_once './GestioneCorse/FunzioniTreno.php';
 ?>
 
 <!DOCTYPE html>
@@ -37,18 +38,26 @@ require 'ComandiSQL/sqlConvoglio.php';
 <h1>Gestione Corse</h1>
 <section>
     <h3>Convogli creati liberi</h3>
-    <?php StampaConvogliCreati(); ?>
+    <?php StampaConvogliLiberi(); ?>
 </section>
 
 <section>
-    <h3>Treni con corsa programmata</h3>
-    <p>IN CORSO</p>
+    <h3>Convogli in attività</h3>
+    <?php StampaConvogliInAttivita(); ?>
 </section>
+
+<br>
+<div>
+    <section>
+        <h3>Treni - Orario - Partenza e arrivo</h3>
+        <?php StampaTreniInCorsa() ?>
+    </section>
+</div>
 
 <div class="container">
     <section>
         <h3>Crea un treno da un convoglio libero</h3>
-        <form method="POST" action="GestioneCorse/CodiceGestioneCorse.php">
+        <form method="POST" action="GestioneCorse/CreaCorsaTreno.php">
             <label> Id Convoglio
                 <input type="number" name="id_convoglio" required>
             </label>
@@ -63,10 +72,6 @@ require 'ComandiSQL/sqlConvoglio.php';
             <br>
             <label> Orario di partenza
                 <input type="datetime-local" name="dataOra_partenza" required>
-            </label>
-
-            <label> Orario di arrivo
-                <input type="datetime-local" name="dataOra_arrivo" required>
             </label>
             <button type="submit">Conferma</button>
         </form>
@@ -86,6 +91,17 @@ require 'ComandiSQL/sqlConvoglio.php';
             <li>Villa San Felice km 54,680</li>
         </ol>
     </div>
+</div>
+
+<div class="container">
+    <section>
+        <h3>Elimina treno con le sue tappe</h3>
+        <form method="POST" action="GestioneCorse/EliminaCorsaTreno.php">
+            <label>id treno da eliminare
+                <input type="number" name="id_treno" required></label>
+            <button type="submit">Conferma</button>
+        </form>
+    </section>
 </div>
 
 

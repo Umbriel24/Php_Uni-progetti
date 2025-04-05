@@ -34,9 +34,8 @@ function stampaCarrozzeInattive($carrozeInattive)
         echo '<div class="alert">Nessuna convoglio inattivo.</div>';
     }
 }
+
 //---------
-
-
 
 
 //LOCOMOTRICI
@@ -49,7 +48,8 @@ function getLocomotriceByAttivita($attivita)
     return EseguiQuery($query);
 }
 
-function getId_locomotrice_By_Codice($codice_locomotrice){
+function getId_locomotrice_By_Codice($codice_locomotrice)
+{
 
     $query = "SELECT * FROM progetto1_ComposizioneLocomotrice as c
             LEFT JOIN progetto1_Locomotiva as l on c.riferimentoLocomotiva = l.id_locomotrice
@@ -59,16 +59,16 @@ function getId_locomotrice_By_Codice($codice_locomotrice){
 
 
     //Chiedo scusa all'umanità, penso sia il codice più brutto abbia mai scritto
-    while($row = $result->FetchRow()){
-        if($row['codice_locomotiva'] == $codice_locomotrice){
-                return $row["id_locomotrice"];
+    while ($row = $result->FetchRow()) {
+        if ($row['codice_locomotiva'] == $codice_locomotrice) {
+            return $row["id_locomotrice"];
 
-        } else if ($row["codice_automotrice"] == $codice_locomotrice){
-                return $row["Id_locomotrice"]; //Colonna con lo stesso nome, la mette in mauscolo...
+        } else if ($row["codice_automotrice"] == $codice_locomotrice) {
+            return $row["Id_locomotrice"]; //Colonna con lo stesso nome, la mette in mauscolo...
         }
 
     }
-    Throw new Exception("Errore, locomotrice non trovata con quel codice");
+    throw new Exception("Errore, locomotrice non trovata con quel codice");
 }
 
 function getLocomotriceBy_ref_locomotrice($ref_locomotrice)
@@ -79,14 +79,13 @@ function getLocomotriceBy_ref_locomotrice($ref_locomotrice)
             WHERE c.id_locomotrice = $ref_locomotrice";
     $result = EseguiQuery($query);
 
-    while ($row = $result->FetchRow()){
-        if ($row['codice_locomotiva'] != null)
-        {
+    while ($row = $result->FetchRow()) {
+        if ($row['codice_locomotiva'] != null) {
             return $row['codice_locomotiva'];
         } else return $row['codice_automotrice'];
 
     }
-
+    Throw new Exception("Locomotrice non trovabile tramite riferimento");
 
 }
 
@@ -115,6 +114,7 @@ function stampaLocomotriciInattive($locomotriciInattive)
         }
     }
 }
+
 //---------
 
 
@@ -126,24 +126,20 @@ function getConvogliCreati()
 }
 
 
-function StampaConvogliCreati()
+function StampaConvogliLiberi()
 {
     $ConvogliList = getConvogliCreati();
-
-    /*
-    while ($row = $ConvogliList->FetchRow()) {
-        foreach ($row as $key => $value) {
-            echo $key . ": " . $value . "\n";
-        }
-    }
-    return;
-    */
-
 
     echo '<table>';
     echo '<tr><th>ID Convoglio </th><th>Locomotrice</th><th>Posti a sedere</th><th>Carrozze usate</th><th>Data/Ora creazione</th></tr>';
     while ($row = $ConvogliList->FetchRow()) {
+
         $id_temp = $row["id_convoglio"];
+
+        if (CheckConvoglioAttivita($id_temp) == true) {
+            continue;
+        }
+
         $locomotrice = getlocomotriceBy_ref_locomotrice($row['id_ref_locomotiva']);
         $dataOraTemp = $row['data_ora_creazione'];
         $tempListCarrozze = getCarrozzeByIdConvoglioAssociato($id_temp);
@@ -152,7 +148,7 @@ function StampaConvogliCreati()
         $codici_carrozze = "";
 
         //Fare in modo che convoglio abbia posti a sedere totali che verranno sottratti dai biglietti
-        if($locomotrice == 'AN56.2' || $locomotrice == 'AN56.4') $posti_a_sedere_temp += 56;
+        if ($locomotrice == 'AN56.2' || $locomotrice == 'AN56.4') $posti_a_sedere_temp += 56;
         while ($row2 = $tempListCarrozze->FetchRow()) {
             //Abbiamo ogni carrozza associata all'id convoglio qui
             $posti_a_sedere_temp += $row2["posti_a_sedere"];
@@ -169,6 +165,61 @@ function StampaConvogliCreati()
 
     }
     echo '</table>';
+}
+
+function StampaConvogliInAttivita()
+{
+    $ConvogliList = getConvogliCreati();
+
+    echo '<table>';
+    echo '<tr><th>ID Convoglio </th><th>Locomotrice</th><th>Posti a sedere</th><th>Carrozze usate</th><th>Data/Ora creazione</th></tr>';
+    while ($row = $ConvogliList->FetchRow()) {
+        $id_temp = $row["id_convoglio"];
+
+        if (CheckConvoglioAttivita($id_temp) == false) {
+            continue;
+        }
+
+        $locomotrice = getlocomotriceBy_ref_locomotrice($row['id_ref_locomotiva']);
+        $dataOraTemp = $row['data_ora_creazione'];
+        $tempListCarrozze = getCarrozzeByIdConvoglioAssociato($id_temp);
+
+        $posti_a_sedere_temp = 0;
+        $codici_carrozze = "";
+
+        //Fare in modo che convoglio abbia posti a sedere totali che verranno sottratti dai biglietti
+        if ($locomotrice == 'AN56.2' || $locomotrice == 'AN56.4') $posti_a_sedere_temp += 56;
+        while ($row2 = $tempListCarrozze->FetchRow()) {
+            //Abbiamo ogni carrozza associata all'id convoglio qui
+            $posti_a_sedere_temp += $row2["posti_a_sedere"];
+            $codici_carrozze .= $row2["codice_carrozza"] . ", ";
+        }
+
+        echo '<tr>';
+        echo '<td>' . $id_temp . '</td>';
+        echo '<td>' . $locomotrice . '</td>';
+        echo '<td>' . $posti_a_sedere_temp . '</td>';
+        echo '<td>' . $codici_carrozze . '</td>';
+        echo '<td>' . $dataOraTemp . '</td>';
+        echo '</tr>';
+
+    }
+    echo '</table>';
+}
+
+function CheckConvoglioAttivita($id_convoglio)
+{
+    $query = "SELECT * FROM progetto1_Treno t
+LEFT JOIN progetto1_Convoglio c on c.id_convoglio  = t.id_ref_convoglio";
+
+    $result = EseguiQuery($query);
+    while ($row = $result->FetchRow()) {
+        if ($row['id_ref_convoglio'] == $id_convoglio) {
+            //Quel convoglio è in attività in un treno
+            return true;
+        }
+    }
+    return false;
 }
 //---------
 

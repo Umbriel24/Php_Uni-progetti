@@ -58,7 +58,7 @@ require 'ComandiSQL/sqlConvoglio.php';
 </section>
 
 <section>
-    <?php StampaConvogliCreati(); ?>
+    <?php StampaConvogliLiberi(); ?>
     <p>Fine lista convogli creati liberi</p>
 </section>
 
