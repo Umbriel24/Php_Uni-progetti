@@ -1,7 +1,7 @@
 ﻿<?php
 require_once __DIR__ . '/../CartellaDB/database.php';
 require_once __DIR__ . '/../ComandiSQL/sqlConvoglio.php';
-require_once __DIR__ . '/SqlStazione.php';
+require_once __DIR__ . '/SqlStazione&Tratte.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //COME FUNZIONA
     /*
      *  1. Un convoglio diventa treno con una TRACCIA ORARIA TOTALE E UN PERCORSO
-     *
+     *  2. Il treno va a 50km/h. Sono circa 13,9 m/s.
      */
 
 
@@ -40,10 +40,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //rendi le datetime compatbili
         $dataOra_arrivo = RendiDateTimeCompatibile($dataOra_arrivo);
         $dataOra_partenza = RendiDateTimeCompatibile($dataOra_partenza);
-        CreaTrenoParametrizzato($id_convoglio, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza, $dataOra_arrivo);
 
+        //QUERY progetto1_TRENO INSERT
+        CreaTrenoParametrizzato($id_convoglio, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza, $dataOra_arrivo);
+        $id_treno = getIdTrenoFromConvoglioRef($id_convoglio);
+
+        $distanzaTotaleKm = CalcolaDistanzaTotalePercorsa($id_stazione_arrivo, $id_stazione_partenza);
+
+        //La logica ora è: Calcoliamo l'orario a cui arriva ad ogni stazione.
+        // Aspetta li 2 minuti e parte per la prossima stazione
+        CalcolaPercorsoSubTratte($id_treno, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza, $dataOra_arrivo );
 
         //Throw new exception("Debug . non confermiamo il codice");
+
         CommittaTransazione();
 
 
@@ -81,4 +90,14 @@ function CreaTrenoParametrizzato($id_convoglio, $id_s1, $id_s2, $oraPart, $oraAr
         $nome_stazione_arrivo,
         $id_convoglio
     ]);
+}
+
+function getIdTrenoFromConvoglioRef($id_convoglio){
+    $query = "SELECT id_treno from progetto1_Treno where id_convoglio = $id_convoglio";
+    $result = EseguiQuery($query);
+    $resultArray = $result->FetchRow();
+    if(!$resultArray){
+        Throw new Exception("Errore nella query: Treno non trovato tramite id_convoglio");
+    }
+    else return $resultArray["id_treno"];
 }
