@@ -43,6 +43,9 @@ function CalcolaPercorsoSubTratte($id_treno, $id_staz_partenza, $id_staz_arrivo,
             $kmTotaliSUBTRATTA = CalcolaKmTotaliSubtratta($id_stazione_partenzaSUBTRATTA, $id_stazione_arrivoSUBTRATTA);
             $dataOra_arrivoSUBTRATTA = CalcolaTempoArrivoSubtratta($dataOra_partenzaSubtratta, $kmTotaliSUBTRATTA);
 
+            //Controllo collisioni
+            Check_CollisioneCorsaTreno($id_stazione_arrivoSUBTRATTA, $id_stazione_partenzaSUBTRATTA, $dataOra_arrivoSUBTRATTA, $dataOra_partenzaSubtratta);
+
             $id_rif_treno = $id_treno;
 
             echo 'Arriva al rigo 66';
@@ -92,6 +95,8 @@ function CalcolaPercorsoSubTratte($id_treno, $id_staz_partenza, $id_staz_arrivo,
             $kmTotaliSUBTRATTA = CalcolaKmTotaliSubtratta($id_stazione_partenzaSUBTRATTA, $id_stazione_arrivoSUBTRATTA);
             $dataOra_arrivoSUBTRATTA = CalcolaTempoArrivoSubtratta($dataOra_partenzaSubtratta, $kmTotaliSUBTRATTA);
 
+            Check_CollisioneCorsaTreno($id_stazione_arrivoSUBTRATTA, $id_stazione_partenzaSUBTRATTA, $dataOra_arrivoSUBTRATTA, $dataOra_partenzaSubtratta);
+
             $id_rif_treno = $id_treno;
 
             echo 'Arriva al rigo 66';
@@ -119,6 +124,63 @@ function CalcolaPercorsoSubTratte($id_treno, $id_staz_partenza, $id_staz_arrivo,
     }
 }
 
+function Check_CollisioneCorsaTreno($id_stazione_arrivo, $id_stazione_partenza, $ora_arrivo, $ora_partenza){
+    $query = "SELECT * from progetto1_Subtratta";
+    $result = EseguiQuery($query);
+
+
+    while ($row = $result->fetchRow()) {
+        $temp_Staz_arrivo = $row['id_stazione_arrivo'];
+        $temp_Staz_partenza = $row['id_stazione_partenza'];
+        $temp_orario_partenza = $row['ora_di_partenza'];
+        $temp_orario_arrivo = $row['ora_di_arrivo'];
+
+
+        //I casi sono due 2:
+
+
+        //1. treni partono per lo stesso momento per la stessa tratta/subtratta
+        if($temp_orario_partenza == $ora_partenza && $temp_Staz_partenza == $id_stazione_partenza && $temp_Staz_arrivo == $id_stazione_arrivo){
+            Throw new Exception("Impossibile creare un treno conqueste condizioni: 
+            due treni partono nello stesso orario nella stessa direzione");
+        }
+
+        //2. Due treni in direzione opposta si incontrano
+        if($temp_Staz_arrivo == $id_stazione_partenza && $temp_Staz_partenza == $id_stazione_arrivo){
+            //Dobbiamo calcolare il tempo
+            //Vediamo prima se sono nella stessa giornata
+            $dataTreno1Andata = new Datetime($ora_partenza);
+            $dataTreno2Andata = new Datetime($temp_orario_partenza);
+            $dataTreno1Arrivo = new Datetime($ora_arrivo);
+            $dataTreno2Arrivo = new DateTime($temp_orario_arrivo);
+
+            $giornata_AndataTreno1 = $dataTreno1Andata->format('Y-m-d');
+            $giornata_AndataTreno2 = $dataTreno2Andata->format('Y-m-d');
+            $giornata_ArrivoTreno1 = $dataTreno1Arrivo->format('Y-m-d');
+            $giornata_ArrivoTreno2 = $dataTreno2Arrivo->format('Y-m-d');
+
+
+
+
+            if($giornata_AndataTreno1 == $giornata_AndataTreno2 && $giornata_ArrivoTreno1 == $giornata_ArrivoTreno2){
+                //Stanno nella stessa giornata, si verificano ora gli orari
+                $orario_AndataTreno1 = $dataTreno1Andata->format('H:i:s');
+                $orario_AndataTreno2 = $dataTreno2Andata->format('H:i:s');
+                $orario_ArrivoTreno1 = $dataTreno1Arrivo->format('H:i:s');
+                $orario_ArrivoTreno2 = $dataTreno2Arrivo->format('H:i:s');
+
+                if(($orario_AndataTreno1 <= $orario_ArrivoTreno2) && ($orario_AndataTreno2 <= $orario_ArrivoTreno1)){
+                    Throw new Exception("Impossibile creare un treno conqueste condizioni: I due treni effettuano una collisione");
+                }
+            }
+
+
+        }
+    }
+
+    return null;
+
+}
 function CalcolaKmTotaliSubtratta($id_staz_part, $id_stazione_arr)
 {
 

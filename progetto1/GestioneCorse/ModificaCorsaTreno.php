@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
+
         //Se arriva qui,  treno e subtratte esistono
         EliminaCorsaSubtrattaByIdTreno($id_treno);
 
