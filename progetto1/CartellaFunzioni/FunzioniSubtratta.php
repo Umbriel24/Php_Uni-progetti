@@ -16,8 +16,7 @@ function CalcolaPercorsoSubTratte($id_treno, $id_staz_partenza, $id_staz_arrivo,
     $dataOra_partenzaSubtratta = $_dataOra_part;
 
 
-    if ($id_staz_partenza <= 0 || $id_staz_arrivo <= 1 || $id_staz_partenza == $id_staz_arrivo
-        || $id_staz_partenza > 9 || $id_staz_arrivo > 10) {
+    if ($id_staz_partenza < 0 || $id_staz_arrivo < 0 || $id_staz_arrivo > 10 || $id_staz_partenza > 10) {
         throw new Exception("Impossibile creare percorso con le seguenti stazioni");
     }
 
@@ -177,6 +176,35 @@ function CheckEsistenzaSubtrattaByIdTreno($id_treno)
     if (!$result) {
         throw new Exception("Non esistono percorsi del treno specificato. ");
     } else return true;
+}
+
+function StampaSubtrattePerStampaTreni()
+{
+    $query = "SELECT * FROM progetto1_Subtratta";
+    $result = EseguiQuery($query);
+
+    if (!$result) {
+        return false;
+    } else
+        while ($row = $result->fetchRow()) {
+
+            $id_treno = $row["id_rif_treno"];
+            $id_subtratta = $row["id_subtratta"];
+            $Ora_partenza = $row['ora_di_partenza'];
+            $Ora_arrivo = $row['ora_di_arrivo'];
+            $stazione_partenza = getNomeStazioneFromId($row['id_stazione_partenza']);
+            $stazione_arrivo = getNomeStazioneFromId($row['id_stazione_arrivo']);
+
+            echo '<tr>';
+            echo '<td>' . $id_treno . '</td>';
+            echo '<td>' . $id_subtratta . '</td>';
+            echo '<td>' . $Ora_partenza . '</td>';
+            echo '<td>' . $Ora_arrivo . '</td>';
+            echo '<td>' . $stazione_partenza . '</td>';
+            echo '<td>' . $stazione_arrivo . '</td>';
+            echo '</tr>';
+
+        }
 }
 
 ?>

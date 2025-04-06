@@ -30,14 +30,13 @@ function StampaConvogliLiberi()
         $dataOraTemp = $row['data_ora_creazione'];
         $tempListCarrozze = getCarrozzeByIdConvoglioAssociato($id_temp);
 
-        $posti_a_sedere_temp = 0;
+        $posti_a_sedere_temp = getPostiASedereFromConvoglio($id_temp);
         $codici_carrozze = "";
 
         //Fare in modo che convoglio abbia posti a sedere totali che verranno sottratti dai biglietti
-        if ($locomotrice == 'AN56.2' || $locomotrice == 'AN56.4') $posti_a_sedere_temp += 56;
+
         while ($row2 = $tempListCarrozze->FetchRow()) {
             //Abbiamo ogni carrozza associata all'id convoglio qui
-            $posti_a_sedere_temp += $row2["posti_a_sedere"];
             $codici_carrozze .= $row2["codice_carrozza"] . ", ";
         }
 
@@ -74,10 +73,10 @@ function StampaConvogliInAttivita()
         $codici_carrozze = "";
 
         //Fare in modo che convoglio abbia posti a sedere totali che verranno sottratti dai biglietti
-        if ($locomotrice == 'AN56.2' || $locomotrice == 'AN56.4') $posti_a_sedere_temp += 56;
+
         while ($row2 = $tempListCarrozze->FetchRow()) {
             //Abbiamo ogni carrozza associata all'id convoglio qui
-            $posti_a_sedere_temp += $row2["posti_a_sedere"];
+
             $codici_carrozze .= $row2["codice_carrozza"] . ", ";
         }
 
@@ -107,6 +106,30 @@ LEFT JOIN progetto1_Convoglio c on c.id_convoglio  = t.id_ref_convoglio";
     }
     return false;
 }
-//---------
 
+
+function CreazioneConvoglio($codice_locomotrice, $posti_a_sedere_complessivi){
+    //parte 1: Insert
+    $id_locomotrice = getId_locomotrice_By_Codice($codice_locomotrice);
+
+
+    $query = "INSERT INTO progetto1_Convoglio(id_ref_locomotiva, data_ora_creazione, posti_a_sedere) 
+    VALUES($id_locomotrice, NOW(), '$posti_a_sedere_complessivi');";
+    EseguiQuery($query);
+}
+
+function Convoglio_getIdconvoglio_By_refLocomotiva($id_ref_locomotiva){
+    $query = "SELECT * FROM progetto1_Convoglio WHERE id_ref_locomotiva = $id_ref_locomotiva";
+    echo $query;
+    echo "<br>";
+    return EseguiQuery($query);
+}
+
+function getPostiASedereFromConvoglio($id_convoglio)
+{
+    $query = "SELECT posti_a_sedere FROM progetto1_Convoglio WHERE id_convoglio = $id_convoglio";
+    $result = EseguiQuery($query);
+    $row = $result->FetchRow();
+    return $row["posti_a_sedere"];
+}
 ?>

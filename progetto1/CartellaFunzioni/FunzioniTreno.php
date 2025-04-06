@@ -36,6 +36,14 @@ function StampaTreniInCorsa()
 
 }
 
+function StampaTreniInCorsaPerIClienti()
+{
+    echo '<table>';
+    echo '<tr><th>Treno </th><th>Numero corsa</th><th>Ora di partenza</th><th>Ora di arrivo</th><th>Stazione di partenza</th><th>Stazione di arrivo</th></tr>';
+    StampaSubtrattePerStampaTreni();
+    echo '</tr>';
+}
+
 function CalcolaArrivoByTempoPartenzaEKMTotali($OraPartenza, $kmTotali)
 {
     //Ricordando che va a 50km/h
