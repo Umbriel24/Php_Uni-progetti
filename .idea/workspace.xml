@@ -4,11 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Login e registrazione sito1 fatto">
-      <change afterPath="$PROJECT_DIR$/progetto1/amministrazione.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/esercizio.php" afterDir="false" />
+    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Corsa eliminabile e creabile correttamente">
+      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniLocomotrice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniStazione.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniSubtratta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniTreno.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/ModificaCorsaTreno.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/ComandiSQL/creazioneCorse.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniCarrozze.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/ComandiSQL/sqlConvoglio.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/ConvogliComandi/EliminaConvoglio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/ConvogliComandi/EliminaConvoglio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/ConvogliComandi/creazioneConvoglio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/ConvogliComandi/creazioneConvoglio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaGestioneCorse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsaTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsaTreno.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/EliminaCorsaTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/EliminaCorsaTreno.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/FunzioniTreno.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/SqlStazione&amp;Tratte.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/amministrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/esercizio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaEsercizio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/registrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaRegistrazione.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +59,9 @@
   }
 }</component>
   <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -51,28 +71,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Vario/PhpDockerFile/progetto1",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Vario/PhpDockerFile/progetto1&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Vario\PhpDockerFile\progetto1" />
@@ -105,7 +125,13 @@
       <workItem from="1743459271991" duration="10148000" />
       <workItem from="1743512288022" duration="11027000" />
       <workItem from="1743536540476" duration="4249000" />
-      <workItem from="1743621983236" duration="5870000" />
+      <workItem from="1743621983236" duration="5919000" />
+      <workItem from="1743685399197" duration="11681000" />
+      <workItem from="1743706405695" duration="9156000" />
+      <workItem from="1743779183311" duration="8453000" />
+      <workItem from="1743854778418" duration="13872000" />
+      <workItem from="1743892080681" duration="6666000" />
+      <workItem from="1743941083453" duration="2229000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -203,7 +229,111 @@
       <option name="project" value="LOCAL" />
       <updated>1743625104545</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Robe - Da aggiungere il check dei treni per l'inserimento in orario">
+      <option name="closed" value="true" />
+      <created>1743629237279</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743629237279</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Stampa di convogli liberi e locomotive libere">
+      <option name="closed" value="true" />
+      <created>1743688449870</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743688449870</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Stampa di carrozze, convogli e locomotrici libere">
+      <option name="closed" value="true" />
+      <created>1743691441463</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1743691441463</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1743694450150</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1743694450150</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Non ci sto a capi niente">
+      <option name="closed" value="true" />
+      <created>1743696870640</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1743696870640</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Quasi completo il create - manca il riferimento al table convoglio in ref_convoglio in carrozza">
+      <option name="closed" value="true" />
+      <created>1743711996955</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1743711996955</updated>
+    </task>
+    <task id="LOCAL-00019" summary="polkodioooooooooo">
+      <option name="closed" value="true" />
+      <created>1743715368265</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1743715368265</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Pre-Transazione">
+      <option name="closed" value="true" />
+      <created>1743782444789</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1743782444789</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Creazione convoglio e eliminazione convoglio perfettamente funzionante">
+      <option name="closed" value="true" />
+      <created>1743787511238</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1743787511238</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Treno creabile">
+      <option name="closed" value="true" />
+      <created>1743860351416</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1743860351416</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Save temp">
+      <option name="closed" value="true" />
+      <created>1743864310303</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1743864310303</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Treni creabili">
+      <option name="closed" value="true" />
+      <created>1743869037276</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1743869037276</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Corsa eliminabile e creabile correttamente">
+      <option name="closed" value="true" />
+      <created>1743896160129</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1743896160129</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,9 +348,21 @@
     <MESSAGE value="Aggiunta lista di movimenti" />
     <MESSAGE value="Homepage diversificata tra esercente e acquirente" />
     <MESSAGE value="Quasi finito di mettere transazioni" />
-    <MESSAGE value="Fix" />
     <MESSAGE value="Prodotto semi finito" />
     <MESSAGE value="Login e registrazione sito1 fatto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login e registrazione sito1 fatto" />
+    <MESSAGE value="Robe - Da aggiungere il check dei treni per l'inserimento in orario" />
+    <MESSAGE value="Stampa di convogli liberi e locomotive libere" />
+    <MESSAGE value="Stampa di carrozze, convogli e locomotrici libere" />
+    <MESSAGE value="Fix" />
+    <MESSAGE value="Non ci sto a capi niente" />
+    <MESSAGE value="Quasi completo il create - manca il riferimento al table convoglio in ref_convoglio in carrozza" />
+    <MESSAGE value="polkodioooooooooo" />
+    <MESSAGE value="Pre-Transazione" />
+    <MESSAGE value="Creazione convoglio e eliminazione convoglio perfettamente funzionante" />
+    <MESSAGE value="Treno creabile" />
+    <MESSAGE value="Save temp" />
+    <MESSAGE value="Treni creabili" />
+    <MESSAGE value="Corsa eliminabile e creabile correttamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corsa eliminabile e creabile correttamente" />
   </component>
 </project>

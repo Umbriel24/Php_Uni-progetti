@@ -16,9 +16,9 @@ session_start();
     <h1>Società ferrovie Turistiche - SFT</h1>
     <p>Accedi o registrati se non hai ancora un account</p>
 
-    <p>Hai già un account?<a href="login.php">Vai alla pagina di login</a></p>
+    <p>Hai già un account?<a href="PaginaLogin.php">Vai alla pagina di login</a></p>
 
-    <p>Non hai ancora un account? <a href="registrazione.php"> Clicca qui per registrarti</a> </p>
+    <p>Non hai ancora un account? <a href="PaginaRegistrazione.php"> Clicca qui per registrarti</a> </p>
 </div>
 </body>
 </html>

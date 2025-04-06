@@ -1,6 +1,11 @@
 ﻿<?php
 require __DIR__ . '/../CartellaDB/database.php';
-require_once __DIR__ . '/../ComandiSQL/sqlConvoglio.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniCarrozze.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniStazione.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniSubtratta.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniTreno.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniConvoglio.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniLocomotrice.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -11,22 +16,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Inizia transazione
     try {
         IniziaTransazione();
-        echo 'Qui 1';
+
         // Check se l'id del convoglio esiste.
         if (!CheckEsistenzaConvoglio($id_convoglio)) {
             throw new Exception('Convoglio non trovato');
         }
+        if (CheckConvoglioAttivita($id_convoglio)) {
+            throw new Exception('Convoglio in attività. Eliminare prima il treno con la sua corsa');
+        }
 
-        echo 'Qui 2';
+
         // Ogni carrozza collegata -> in_attività = no e id_convoglio = NULL
         ResettaCarrozzaTramite_IdConvoglio($id_convoglio);
-        echo 'Qui 3';
+
         // ComposizioneLocomotrice -> in_attività = no.
         ResetAttivita_CompLocomotrice_ByIdConvoglio($id_convoglio);
-        echo 'Qui 4';
+
         // Elimiamo la tupla in Convoglio.
         EliminaTuplaConvoglioById($id_convoglio);
-        echo 'Qui 5';
+
+
         CommittaTransazione();
         echo 'Transazione effettuata con successo';
 

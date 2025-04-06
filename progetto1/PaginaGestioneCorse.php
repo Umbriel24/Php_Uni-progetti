@@ -1,6 +1,10 @@
 ﻿<?php
-require 'ComandiSQL/sqlConvoglio.php';
-require_once './GestioneCorse/FunzioniTreno.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniCarrozze.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniStazione.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniSubtratta.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniTreno.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniConvoglio.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +35,8 @@ require_once './GestioneCorse/FunzioniTreno.php';
 </head>
 <body>
 <nav>
-    <a href="esercizio.php">Gestione esercizio</a>
-    <a href="GestioneCorse.php">Gestione Corse</a>
+    <a href="PaginaEsercizio.php">Gestione esercizio</a>
+    <a href="PaginaGestioneCorse.php">Gestione Corse</a>
     <a href="index.php">Esci</a>
 </nav>
 <h1>Gestione Corse</h1>
@@ -100,6 +104,27 @@ require_once './GestioneCorse/FunzioniTreno.php';
             <label>id treno da eliminare
                 <input type="number" name="id_treno" required></label>
             <button type="submit">Conferma</button>
+        </form>
+    </section>
+
+
+
+    <section>
+        <h3>Modifica Treno con la sua corsa</h3>
+        <form method="POST" action="GestioneCorse/ModificaCorsaTreno.php">
+            <label>Inserisci ID Treno da modificare
+                <input type="number" name="id_treno" required>
+            </label>
+            <label>Inserisci Id della nuova stazione di partenza
+                <input type="number" name="id_staz_partenza" required>
+            </label>
+            <label>Inserisci Id della nuova stazione di arrivo
+                <input type="number" name="id_staz_arrivo" required>
+            </label>
+            <label>Inserisci il nuovo l'orario di partenza
+                <input type="datetime-local" name="dataOra" required>
+            </label>
+            <button type="submit">Conferma Modifica</button>
         </form>
     </section>
 </div>

@@ -1,5 +1,11 @@
 ﻿<?php
-require 'ComandiSQL/sqlConvoglio.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniCarrozze.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniStazione.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniSubtratta.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniTreno.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniConvoglio.php';
+require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
+
 //Compone e scompone convogli
 //Costruisce le corse con le tratte e orari.
 //Ogni corsa può essere modificata o cancellata.
@@ -41,8 +47,8 @@ require 'ComandiSQL/sqlConvoglio.php';
 </head>
 <body>
 <nav>
-    <a href="esercizio.php">Gestione esercizio</a>
-    <a href="GestioneCorse.php">Gestione Corse</a>
+    <a href="PaginaEsercizio.php">Gestione esercizio</a>
+    <a href="PaginaGestioneCorse.php">Gestione Corse</a>
     <a href="index.php">Esci</a>
 
 </nav>
@@ -141,11 +147,15 @@ require 'ComandiSQL/sqlConvoglio.php';
 </section>
 
 <br>
+
 <h3>Elimina Convoglio</h3>
 <form method="POST" action="ConvogliComandi/EliminaConvoglio.php">
     <label>Inserisci ID convoglio da eliminare<input type="number" name="id_convoglio"></label>
     <br>
     <button type="submit">Conferma eliminazione</button>
 </form>
+
+
+
 </body>
 </html>

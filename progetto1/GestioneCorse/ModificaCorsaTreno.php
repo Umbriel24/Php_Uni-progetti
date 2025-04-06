@@ -9,12 +9,12 @@ require_once __DIR__ . '/../CartellaFunzioni/FunzioniLocomotrice.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $id_convoglio = $_POST["id_convoglio"] ?? null;
-    $id_stazione_partenza = $_POST["id_stazione_partenza"] ?? null;
-    $id_stazione_arrivo = $_POST["id_stazione_arrivo"] ?? null;
-    $dataOra_partenza = $_POST["dataOra_partenza"] ?? null;
+    $id_treno = $_POST["id_treno"] ?? null;
+    $id_stazione_partenza = $_POST["id_staz_partenza"] ?? null;
+    $id_stazione_arrivo = $_POST["id_staz_arrivo"] ?? null;
+    $dataOra_partenza = $_POST["dataOra"] ?? null;
 
-    echo $id_convoglio;
+    echo $id_treno;
     echo '<br>';
     echo $id_stazione_partenza;
     echo '<br>';
@@ -28,53 +28,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo '<br>';
     echo '<br>';
 
-    //COME FUNZIONA
-    /*
-     *  1. Un convoglio diventa treno con una TRACCIA ORARIA TOTALE E UN PERCORSO
-     *  2. Il treno va a 50km/h. Sono circa 13,9 m/s.
-     */
+
 
 
     //Inizia transazione
     try {
         IniziaTransazione();
 
-        //rendi le datetime compatbili
-        $dataOra_partenza = RendiDateTimeCompatibile($dataOra_partenza);
+        //Check se treno esiste
+        if(!CheckEsistenzaTreno($id_treno)){
+            throw new Exception("Errore Treno non trovato. ");
+        }
 
+        //check se ha biglietti
+        //in corso
+
+        //Check esistenza percorso
+        if(!CheckEsistenzaSubtrattaByIdTreno($id_treno)){
+            throw new Exception("Errore. Il treno non ha nessun percorso");
+        }
+
+        $dataOra_partenza = RendiDateTimeCompatibile($dataOra_partenza);
         $distanzaTotaleKm = CalcolaDistanzaTotalePercorsa($id_stazione_arrivo, $id_stazione_partenza);
         $dataArrivo = CalcolaArrivoByTempoPartenzaEKMTotali($dataOra_partenza, $distanzaTotaleKm);
         $dataArrivo = RendiDateTimeCompatibile($dataArrivo);
 
 
-        //QUERY progetto1_TRENO INSERT
-        CreaTrenoParametrizzato($id_convoglio, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza, $dataArrivo);
 
-        $id_treno = getIdTrenoFromConvoglioRef($id_convoglio);
+        //Se arriva qui,  treno e subtratte esistono
+        EliminaCorsaSubtrattaByIdTreno($id_treno);
 
-        //Distanza totale + Ora iniziale calcoliamo il tempo di arrivo
+        //Modifichiamo il treno
+        ModificaTreno($id_treno, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza, $dataArrivo);
 
-
-        //La logica ora è: Calcoliamo l'orario a cui arriva ad ogni stazione.
-        // Aspetta li 2 minuti e parte per la prossima stazione
+        //Creiamo nuove subtratte
         CalcolaPercorsoSubTratte($id_treno, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza);
 
-
-        //Throw new exception("Debug . non confermiamo il codice");
         CommittaTransazione();
-
-
     } catch (Exception $e) {
         RollbackTransazione();
         die("Errore nella query: " . $e->getMessage());
     }
-
 }
-
-
-
-
-
-
-
-

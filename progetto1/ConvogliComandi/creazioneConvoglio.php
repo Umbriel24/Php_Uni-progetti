@@ -1,6 +1,11 @@
 ﻿<?php
 require __DIR__ . '/../CartellaDB/database.php';
-require_once __DIR__ . '/../ComandiSQL/sqlConvoglio.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniCarrozze.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniStazione.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniSubtratta.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniTreno.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniConvoglio.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniLocomotrice.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $locomotrice = $_POST["locomotrice"] ?? null;

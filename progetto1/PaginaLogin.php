@@ -24,12 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             switch ($email){
                 case 'amministrazione@gmail.com':
                     sleep(1);
-                    header("Location:amministrazione.php");
+                    header("Location:PaginaAmministrazione.php");
                     exit();
                     break;
                 case 'esercizio@gmail.com':
                     sleep(1);
-                    header("Location:esercizio.php");
+                    header("Location:PaginaEsercizio.php");
                     exit();
                     break;
                 default:
