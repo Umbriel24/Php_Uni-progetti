@@ -64,7 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //Creiamo nuove subtratte
         CalcolaPercorsoSubTratte($id_treno, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza);
 
+
         CommittaTransazione();
+
     } catch (Exception $e) {
         RollbackTransazione();
         die("Errore nella query: " . $e->getMessage());
