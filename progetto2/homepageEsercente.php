@@ -42,7 +42,8 @@ require_once './Operazioni/EsercenteOperazioni.php';
 <h2>Effettua operazioni:</h2>
 
 <h3>Gestisci transazioni in attesa:</h3>
-<form method="POST" action="./Operazioni/EsercenteServerPOST.php">
+
+<form method="POST" action="Operazioni/EsercenteDbOperazioni.php">
     <div class="mb-3">
 
         <label for="Id transazione" >

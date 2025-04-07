@@ -1,5 +1,5 @@
 ﻿<?php
-require __DIR__ .  '/../CartellaDB/database.php';
+require __DIR__ . '/../CartellaDBSito2/database.php';
 
 //GET QUERY
 
@@ -11,6 +11,17 @@ function getMovimentiInAttesa($id_contoCorrente)
     return $risultato;
 }
 
+function getIdUtenteByEmail($email_Utente)
+{
+    $query = "SELECT id_utente FROM progetto2_Utente WHERE email = '$email_Utente'";
+    $result = EseguiQuery($query);
+    if($result->RecordCount() == 0){
+        Throw new Exception("id utente non trovato dall'email");
+    }
+
+    $row = $result->FetchRow();
+    return $row['id_utente'];
+}
 function getMovimentiConfermati($id_contoCorrente){
     $query = "SELECT * FROM progetto2_Transazione WHERE id_conto_acquirente = $id_contoCorrente && esito_transazione = 'confermata'";
     $risultato = EseguiQuery($query);
@@ -60,13 +71,6 @@ function getSaldoById($id_utente)
     return $risultato->fields['saldo'];
 }
 
-function getUtenteByEmail($email)
-{
-    $query =  "SELECT * FROM progetto2_Utente WHERE email = $email";
-    $risultato = EseguiQuery($query);
-    return $risultato->fields['utente'];
-}
-
 function getRowUtenteById($email){
     $query = "SELECT * FROM progetto2_Utente WHERE email = '$email'";
     $risultato = EseguiQuery($query);
@@ -98,7 +102,7 @@ function UpdateTransazione($id_transazione, $azione){
 
         EseguiQuery($query);
     }
-    header('Location: homepageEsercente.php');
+
 }
 //Function Count
 function Verifica_UtenteEsercente($id_utente): bool

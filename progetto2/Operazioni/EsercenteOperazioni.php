@@ -1,7 +1,7 @@
 ﻿<?php
 require_once __DIR__ . '/../SQLProgetto2/Sql_GetQuery.php';
 require_once __DIR__ . '/../SQLProgetto2/SQL_PostQuery.php';
-require_once __DIR__ .  '/../CartellaDB/database.php';
+require_once __DIR__ . '/../CartellaDBSito2/database.php';
 
 
 function getSaldoEsercente()

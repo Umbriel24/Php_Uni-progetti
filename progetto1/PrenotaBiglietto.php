@@ -1,12 +1,32 @@
 ﻿<?php
 
-
+require_once __DIR__ . '/Biglietto/CreaBiglietto.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniCarrozze.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniStazione.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniSubtratta.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniTreno.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniConvoglio.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
+
+if(isset($_GET['payment_result'])) {
+    $decoded = base64_decode(urldecode($_GET['payment_result']));
+    $DatiSitoPagamento = json_decode($decoded, true);
+
+
+    if ($DatiSitoPagamento && $DatiSitoPagamento['success']) {
+        echo 'Pagamanto effettuato con successo';
+
+        $prezzo = $DatiSitoPagamento['prezzo'];
+        $id_rif_utente = $DatiSitoPagamento['id_rif_utente'];
+        $id_convoglio = $DatiSitoPagamento['id_convoglio'];
+
+        CreaBigliettoDaiDati($prezzo, $id_rif_utente, $id_convoglio);
+        exit();
+    } else {
+        echo '<div class="error">Pagamento fallito: '.htmlspecialchars($DatiSitoPagamento['error'] ?? 'Errore sconosciuto').'</div>';
+    }
+}
+
 ?>
 
 <!DOCTYPE html>

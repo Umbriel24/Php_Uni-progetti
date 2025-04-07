@@ -59,6 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <p>Debug LOGIN ACQUIRENTE: doof@gmail.com </p>
 <p>DEBUG PASS:  654</p>
 
+<p>Debug LOGIN Ferrovia: Ferrovie@esercizio.it </p>
+<p>DEBUG PASS:  777888999</p>
+
 <form method="POST">
     <div>
         <label for="email">Email:</label>

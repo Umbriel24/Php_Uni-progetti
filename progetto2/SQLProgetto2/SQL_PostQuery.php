@@ -1,5 +1,5 @@
 ﻿<?php
-require_once __DIR__ .  '/../CartellaDB/database.php';
+require_once __DIR__ . '/../CartellaDBSito2/database.php';
 
 // POST QUERY
 function RegistraUtente($nome, $email, $password, $tipo_utente, $codice_fiscale = null, $partita_iva = null){
