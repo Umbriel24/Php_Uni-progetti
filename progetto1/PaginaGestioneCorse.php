@@ -5,6 +5,7 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniSubtratta.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniTreno.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniConvoglio.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
+require_once __DIR__ . '/Amministrazione/FunzioniAmministrazione.php';
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +40,16 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
     <a href="PaginaGestioneCorse.php">Gestione Corse</a>
     <a href="index.php">Esci</a>
 </nav>
+
+<section>
+    <h2>Richiesta Backoffice Amministrativo</h2>
+    <h4>Richiesta treno extra</h4>
+    <?php StampaRichiesteTrenoExtra(); ?>
+    <h4> Richiesta eliminazione treno</h4>
+    <?php StampaRichiesteEliminazioneTreno(); ?>
+</section>
+<br> <br>
+
 <h1>Gestione Corse</h1>
 <section>
     <h3>Convogli creati liberi</h3>

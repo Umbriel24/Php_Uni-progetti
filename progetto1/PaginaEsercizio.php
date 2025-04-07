@@ -5,6 +5,7 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniSubtratta.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniTreno.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniConvoglio.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
+require_once __DIR__ . '/Amministrazione/FunzioniAmministrazione.php';
 
 //Compone e scompone convogli
 //Costruisce le corse con le tratte e orari.
@@ -53,7 +54,18 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
 
 </nav>
 <h1>Account backoffice esercizio</h1>
+
 <section>
+    <h2>Richiesta Backoffice Amministrativo</h2>
+    <h4>Richiesta treno extra</h4>
+    <?php StampaRichiesteTrenoExtra(); ?>
+    <h4> Richiesta eliminazione treno</h4>
+    <?php StampaRichiesteEliminazioneTreno(); ?>
+</section>
+<br> <br>
+
+<section>
+    <h2>Informazioni sui materiali disponibili</h2>
     <p> Carrozze libere:</p>
     <?php stampaCarrozzeInattive(getCarrozzeByAttivita('No')); ?>
 </section>
@@ -67,6 +79,9 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
     <?php StampaConvogliLiberi(); ?>
     <p>Fine lista convogli creati liberi</p>
 </section>
+
+
+
 
 <br>
 <section>
