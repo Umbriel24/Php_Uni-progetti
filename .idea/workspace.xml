@@ -4,23 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Manca il collegamento API">
-      <change afterPath="$PROJECT_DIR$/progetto1/Biglietto/CreaBiglietto.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto2/SQLProgetto2/SQL_Check.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto2/api/EsitoAPI.php" afterDir="false" />
+    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Non so che cazzo sto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto1/PrenotaBiglietto.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PrenotaBiglietto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/api/apiSitoTRENI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/CartellaDB/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/CartellaDBSito2/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/CartellaDB/dbAccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/CartellaDBSito2/dbAccess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/Operazioni/EsercenteOperazioni.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/Operazioni/EsercenteOperazioni.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/Operazioni/EsercenteServerPOST.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/Operazioni/EsercenteDbOperazioni.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/SQLProgetto2/SQL_PostQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/SQLProgetto2/SQL_PostQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/SQLProgetto2/Sql_GetQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/SQLProgetto2/Sql_GetQuery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto2/api/ApiSITOPAGAMENTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/api/ApiSITOPAGAMENTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/homepageEsercente.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/homepageEsercente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +122,7 @@
       <workItem from="1743892080681" duration="6666000" />
       <workItem from="1743941083453" duration="11624000" />
       <workItem from="1744026908095" duration="14787000" />
-      <workItem from="1744060412087" duration="8550000" />
+      <workItem from="1744060412087" duration="9004000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -401,14 +388,21 @@
       <option name="project" value="LOCAL" />
       <updated>1744040569329</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Non so che cazzo sto">
+      <option name="closed" value="true" />
+      <created>1744069098586</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1744069098586</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix  di troppa roba help&#10;&#10;-- Messe funzioni globali&#10;-- Divise le funzionalità" />
     <MESSAGE value="Fix  di troppa roba ancora" />
     <MESSAGE value="Aggiunta lista di movimenti" />
     <MESSAGE value="Homepage diversificata tra esercente e acquirente" />
@@ -433,6 +427,7 @@
     <MESSAGE value="Amministrazione funzioni implementate" />
     <MESSAGE value="Amministrazione funzioni implementate e mostrate in Esercizio" />
     <MESSAGE value="Manca il collegamento API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Manca il collegamento API" />
+    <MESSAGE value="Non so che cazzo sto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Non so che cazzo sto" />
   </component>
 </project>

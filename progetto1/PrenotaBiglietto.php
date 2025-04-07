@@ -9,7 +9,7 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniConvoglio.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
 
 if(isset($_GET['payment_result'])) {
-    $decoded = base64_decode(urldecode($_GET['payment_result']));
+    $decoded = urldecode($_GET['payment_result']);
     $DatiSitoPagamento = json_decode($decoded, true);
 
 
@@ -17,14 +17,29 @@ if(isset($_GET['payment_result'])) {
         echo 'Pagamanto effettuato con successo';
 
         $prezzo = $DatiSitoPagamento['prezzo'];
-        $id_rif_utente = $DatiSitoPagamento['id_rif_utente'];
+        $utenteMail = $DatiSitoPagamento['emailUtente'];
         $id_convoglio = $DatiSitoPagamento['id_convoglio'];
+
+        $id_rif_utente = getIdUtenteByEmail($utenteMail);
 
         CreaBigliettoDaiDati($prezzo, $id_rif_utente, $id_convoglio);
         exit();
     } else {
         echo '<div class="error">Pagamento fallito: '.htmlspecialchars($DatiSitoPagamento['error'] ?? 'Errore sconosciuto').'</div>';
     }
+}
+
+//Chiedo scusa
+function getIdUtenteByEmail($email_Utente)
+{
+    $query = "SELECT id_utente FROM progetto1_Utente WHERE email = '$email_Utente'";
+    $result = EseguiQuery($query);
+    if($result->RecordCount() == 0){
+        Throw new Exception("id utente non trovato dall'email");
+    }
+
+    $row = $result->FetchRow();
+    return $row['id_utente'];
 }
 
 ?>

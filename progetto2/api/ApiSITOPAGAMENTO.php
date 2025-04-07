@@ -57,11 +57,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             'success' => $esito,
             'message' => $esito ? 'Pagamento completato con successo' : 'Pagamento fallito',
             'prezzo' => $prezzoBiglietto,
-        'id_rif_utente' => $id_utente,
+        'emailUtente' => $utenteEmail,
         'id_convoglio' => $convoglio_id,
         ]);
 
-        $encodedData = base64_encode(json_encode($response));
+        $encodedData =  json_encode($response);
         $redirectURL = $url_inviante . (strpos($url_inviante, '?') === false ? '?' : '&')
             . 'payment_result=' . urlencode($encodedData);;
 
