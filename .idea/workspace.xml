@@ -4,28 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Corsa eliminabile e creabile correttamente">
-      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniLocomotrice.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniStazione.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniSubtratta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniTreno.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/ModificaCorsaTreno.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" afterDir="false" />
+    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Fix">
+      <change afterPath="$PROJECT_DIR$/progetto1/Amministrazione/EliminaRichiestaAmministrazione.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/Amministrazione/FunzioniAmministrazione.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/Amministrazione/RichiestaEliminazioneTreno.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/Amministrazione/RichiestaTreniStraordinari.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/ComandiSQL/creazioneCorse.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniCarrozze.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/ComandiSQL/sqlConvoglio.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/ConvogliComandi/EliminaConvoglio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/ConvogliComandi/EliminaConvoglio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/ConvogliComandi/creazioneConvoglio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/ConvogliComandi/creazioneConvoglio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaGestioneCorse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsaTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsaTreno.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/EliminaCorsaTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/EliminaCorsaTreno.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/FunzioniTreno.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/SqlStazione&amp;Tratte.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/amministrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/esercizio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaEsercizio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/registrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaRegistrazione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniStazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniStazione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +118,8 @@
       <workItem from="1743779183311" duration="8453000" />
       <workItem from="1743854778418" duration="13872000" />
       <workItem from="1743892080681" duration="6666000" />
-      <workItem from="1743941083453" duration="2229000" />
+      <workItem from="1743941083453" duration="11624000" />
+      <workItem from="1744026908095" duration="3866000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -333,7 +321,39 @@
       <option name="project" value="LOCAL" />
       <updated>1743896160129</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Corsa modificabile. Da aggiungere il percorso dalla stazione n alto al n basso.">
+      <option name="closed" value="true" />
+      <created>1743943552032</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1743943552032</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Corsa modificabile e corsa creabile dalla stazione grande alla minore">
+      <option name="closed" value="true" />
+      <created>1743944872668</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1743944872668</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1743948282751</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1743948282751</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1743950810471</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1743950810471</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +373,6 @@
     <MESSAGE value="Robe - Da aggiungere il check dei treni per l'inserimento in orario" />
     <MESSAGE value="Stampa di convogli liberi e locomotive libere" />
     <MESSAGE value="Stampa di carrozze, convogli e locomotrici libere" />
-    <MESSAGE value="Fix" />
     <MESSAGE value="Non ci sto a capi niente" />
     <MESSAGE value="Quasi completo il create - manca il riferimento al table convoglio in ref_convoglio in carrozza" />
     <MESSAGE value="polkodioooooooooo" />
@@ -363,6 +382,9 @@
     <MESSAGE value="Save temp" />
     <MESSAGE value="Treni creabili" />
     <MESSAGE value="Corsa eliminabile e creabile correttamente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corsa eliminabile e creabile correttamente" />
+    <MESSAGE value="Corsa modificabile. Da aggiungere il percorso dalla stazione n alto al n basso." />
+    <MESSAGE value="Corsa modificabile e corsa creabile dalla stazione grande alla minore" />
+    <MESSAGE value="Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
   </component>
 </project>

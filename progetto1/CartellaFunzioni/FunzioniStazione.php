@@ -45,5 +45,19 @@ function CalcolaDistanzaTotalePercorsa($id_stazione_partenza, $id_stazione_arriv
 
 }
 
+function VerificaNumeroStazioni($id_stazione_partenza, $id_stazione_arrivo)
+{
+    if($id_stazione_arrivo == null || $id_stazione_arrivo == null) {
+        Throw new Exception("Stazioni non valide. sono inesistenti");
+    } else if ($id_stazione_partenza < 0 || $id_stazione_arrivo < 0) {
+        Throw new Exception("Stazioni non valide. sono minori di 10");
+    } else if ($id_stazione_partenza > 10 || $id_stazione_arrivo > 10) {
+        Throw new Exception("Stazioni non valide. sono maggiori di 10");
+    } else if ($id_stazione_arrivo == $id_stazione_partenza) {
+        Throw new Exception("Partenza e destinazione corrispondono. ");
+    } else {
+        return true;
+    }
+}
 
 ?>

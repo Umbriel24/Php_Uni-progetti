@@ -69,7 +69,7 @@ function StampaConvogliInAttivita()
         $dataOraTemp = $row['data_ora_creazione'];
         $tempListCarrozze = getCarrozzeByIdConvoglioAssociato($id_temp);
 
-        $posti_a_sedere_temp = 0;
+        $posti_a_sedere_temp = getPostiASedereFromConvoglio($id_temp);
         $codici_carrozze = "";
 
         //Fare in modo che convoglio abbia posti a sedere totali che verranno sottratti dai biglietti

@@ -1,12 +1,13 @@
 ﻿<?php
 
-
+require_once  __DIR__. '/Amministrazione/FunzioniAmministrazione.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniCarrozze.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniStazione.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniSubtratta.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniTreno.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniConvoglio.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,9 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
     <a href="PaginaGestioneCorse.php">Gestione Corse</a>
     <a href="index.php">Esci</a>
 </nav>
-<h1>Gestione Corse</h1>
+
+<h1>Pagina Amministrazione</h1>
+
 <section>
     <h3>Convogli creati liberi</h3>
     <?php StampaConvogliLiberi(); ?>
@@ -62,7 +65,70 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
 
 
 <div class="container">
-<h3>Suggerisci dei treni all'esercizio</h3>
+    <section>
+        <h3>Richiedi dei treni all'esercizio</h3>
+        <form method="POST" action="Amministrazione/RichiestaTreniStraordinari.php">
+            <label>Quanti posti richiedi:
+            <input type="number" name="posti_richiesti" required>
+            </label>
+
+            <label>Data e ora della partenza del treno
+            <input type="datetime-local" name="data_partenza" required>
+            </label>
+
+            <label>Stazione di partenza
+                <input type="number" name="id_stazione_partenza" required>
+            </label>
+
+            <label>Stazione di arrivo
+                <input type="number" name="id_stazione_arrivo" required>
+            </label>
+
+            <button type="submit">Invia</button>
+        </form>
+
+    </section>
+
+    <section>
+        <h3>Richiedi cessazione del  treno all'esercizio</h3>
+        <form method="POST" action="Amministrazione/RichiestaEliminazioneTreno.php">
+            <label>Id treno
+            <input type="number" name="id_treno" required>
+            </label>
+            <button type="submit">Conferma</button>
+        </form>
+
+    </section>
 </div>
+
+<h3>Visualizza richieste effettuate</h3>
+<h4>Richiesta  treni extra</h4>
+<section>
+    <div>
+       <?php StampaRichiesteTrenoExtra(); ?>
+    </div>
+</section>
+
+<h4>Richiesta eliminazione treni</h4>
+<section>
+    <div>
+        <?php StampaRichiesteEliminazioneTreno(); ?>
+    </div>
+</section>
+
+<br>
+<div class="container">
+
+<section>
+    <h3>Elimina una richiesta</h3>
+    <form method="POST" action="Amministrazione/EliminaRichiestaAmministrazione.php">
+        <label>id richiesta da eliminare
+            <input type="number" name="id_richiesta" required>
+        </label>
+        <button type="submit">Conferma</button>
+    </form>
+</section>
+</div>
+
 </body>
 </html>
