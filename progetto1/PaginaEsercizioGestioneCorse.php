@@ -37,7 +37,7 @@ require_once __DIR__ . '/Amministrazione/FunzioniAmministrazione.php';
 <body>
 <nav>
     <a href="PaginaEsercizio.php">Gestione esercizio</a>
-    <a href="PaginaGestioneCorse.php">Gestione Corse</a>
+    <a href="PaginaEsercizioGestioneCorse.php">Gestione Corse</a>
     <a href="index.php">Esci</a>
 </nav>
 
@@ -91,21 +91,7 @@ require_once __DIR__ . '/Amministrazione/FunzioniAmministrazione.php';
             <button type="submit">Conferma</button>
         </form>
     </section>
-    <div>
-        <p>Lista Stazioni</p>
-        <ol>
-            <li>Torre Spaventa km 0,000</li>
-            <li>Prato Terra km 2,700</li>
-            <li>Rocca Pietrosa km 7.580</li>
-            <li>Villa Pietrosa km 12,680</li>
-            <li>Villa Santa Maria km 16,900</li>
-            <li>Pietra Santa Maria km 23,950</li>
-            <li>Castro Marino km 31,500</li>
-            <li>Porto spigola km 39,500</li>
-            <li>Porto San Felice km 46,000</li>
-            <li>Villa San Felice km 54,680</li>
-        </ol>
-    </div>
+    <?php StampaListaStazioni(); ?>
 </div>
 
 <div class="container">

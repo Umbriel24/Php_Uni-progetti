@@ -47,17 +47,36 @@ function CalcolaDistanzaTotalePercorsa($id_stazione_partenza, $id_stazione_arriv
 
 function VerificaNumeroStazioni($id_stazione_partenza, $id_stazione_arrivo)
 {
-    if($id_stazione_arrivo == null || $id_stazione_arrivo == null) {
-        Throw new Exception("Stazioni non valide. sono inesistenti");
+    if ($id_stazione_arrivo == null || $id_stazione_arrivo == null) {
+        throw new Exception("Stazioni non valide. sono inesistenti");
     } else if ($id_stazione_partenza < 0 || $id_stazione_arrivo < 0) {
-        Throw new Exception("Stazioni non valide. sono minori di 10");
+        throw new Exception("Stazioni non valide. sono minori di 10");
     } else if ($id_stazione_partenza > 10 || $id_stazione_arrivo > 10) {
-        Throw new Exception("Stazioni non valide. sono maggiori di 10");
+        throw new Exception("Stazioni non valide. sono maggiori di 10");
     } else if ($id_stazione_arrivo == $id_stazione_partenza) {
-        Throw new Exception("Partenza e destinazione corrispondono. ");
+        throw new Exception("Partenza e destinazione corrispondono. ");
     } else {
         return true;
     }
+}
+
+function StampaListaStazioni()
+{
+    echo '<div>';
+    echo '<p>Lista Stazioni</p>';
+    echo '<ol>';
+    echo '        <li>Torre Spaventa km 0,000</li>';
+    echo '        <li>Prato Terra km 2,700</li>';
+    echo '        <li>Rocca Pietrosa km 7.580</li>';
+    echo '        <li>Villa Pietrosa km 12,680</li>';
+    echo '        <li>Villa Santa Maria km 16,900</li>';
+    echo '        <li>Pietra Santa Maria km 23,950</li>';
+    echo '        <li>Castro Marino km 31,500</li>';
+    echo '        <li>Porto spigola km 39,500</li>';
+    echo '        <li>Porto San Felice km 46,000</li>';
+    echo '        <li>Villa San Felice km 54,680</li>';
+    echo '    </ol>';
+    echo '</div>';
 }
 
 ?>

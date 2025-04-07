@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Amministrazione funzioni implementate">
+    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Amministrazione funzioni implementate e mostrate in Esercizio">
+      <change afterPath="$PROJECT_DIR$/progetto1/Biglietto/AcquistoBiglietto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniTratta.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniStazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniStazione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsaTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsaTreno.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto1/PaginaEsercizio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaEsercizio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PaginaGestioneCorse.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaGestioneCorse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/PaginaGestioneCorse.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaEsercizioGestioneCorse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/PaginaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/prenotaBiglietto.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PrenotaBiglietto.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +123,7 @@
       <workItem from="1743854778418" duration="13872000" />
       <workItem from="1743892080681" duration="6666000" />
       <workItem from="1743941083453" duration="11624000" />
-      <workItem from="1744026908095" duration="4234000" />
+      <workItem from="1744026908095" duration="8673000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -356,14 +365,21 @@
       <option name="project" value="LOCAL" />
       <updated>1744030828196</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Amministrazione funzioni implementate e mostrate in Esercizio">
+      <option name="closed" value="true" />
+      <created>1744031224763</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1744031224763</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Pseudo login" />
     <MESSAGE value="Login con stampa di saldo" />
     <MESSAGE value="Fix  di troppa roba help&#10;&#10;-- Messe funzioni globali&#10;-- Divise le funzionalità" />
     <MESSAGE value="Fix  di troppa roba ancora" />
@@ -388,6 +404,7 @@
     <MESSAGE value="Corsa modificabile e corsa creabile dalla stazione grande alla minore" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Amministrazione funzioni implementate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Amministrazione funzioni implementate" />
+    <MESSAGE value="Amministrazione funzioni implementate e mostrate in Esercizio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Amministrazione funzioni implementate e mostrate in Esercizio" />
   </component>
 </project>

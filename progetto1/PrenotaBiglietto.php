@@ -38,17 +38,36 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
 
 
 <body>
-<div>Prenota biglietto</div>
+<h2>Prenota biglietto</h2>
 
-<div>
+<div class="container">
     <section>
-        <h3>Ecco le corse:</h3>
-        <?php StampaTreniInCorsaPerIClienti() ?>
+
+        <form method="POST" action="Biglietto/BigliettoCodice.php">
+            <label>Inserisci id stazione di partenza
+                <input type="number" name="id_stazione_partenza" required>
+            </label>
+            <br>
+            <label>Inserisci id stazione di arrivo
+                <input type="number" name="id_stazione_arrivo" required>
+            </label>
+            <br>
+            <button type="submit">Cerca treno</button>
+        </form>
+
+    </section>
+    <section>
+        <?php StampaListaStazioni(); ?>
     </section>
 </div>
 
 
-<h3>Prenota corsa: Inserisci numero corsa</h3>
+<div>
+    <section>
+        <h3>Lista tutte le  corse:</h3>
+        <?php StampaTreniInCorsaPerIClienti() ?>
+    </section>
+</div>
 
 </body>
 

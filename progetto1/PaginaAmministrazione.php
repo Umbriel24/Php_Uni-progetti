@@ -39,7 +39,7 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
 <body>
 <nav>
     <a href="PaginaEsercizio.php">Gestione esercizio</a>
-    <a href="PaginaGestioneCorse.php">Gestione Corse</a>
+    <a href="PaginaEsercizioGestioneCorse.php">Gestione Corse</a>
     <a href="index.php">Esci</a>
 </nav>
 

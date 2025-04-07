@@ -37,9 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Inizia transazione
     try {
-        echo '<br>';
-        echo 'UE';
-        echo '<br>';
         IniziaTransazione();
 
         //rendi le datetime compatbili

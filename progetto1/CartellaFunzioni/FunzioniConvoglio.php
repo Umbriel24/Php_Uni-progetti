@@ -132,4 +132,14 @@ function getPostiASedereFromConvoglio($id_convoglio)
     $row = $result->FetchRow();
     return $row["posti_a_sedere"];
 }
+
+function getConvoglioById_Treno($id_treno){
+    $query = "SELECT id_ref_convoglio FROM progetto1_Treno WHERE id_treno = $id_treno";
+    $result = EseguiQuery($query);
+
+    if($result->RecordCount() > 0){
+        $row = $result->FetchRow();
+        return $row["id_ref_convoglio"];
+    } else Throw new Exception("Convoglio non trovato con id treno $id_treno");
+}
 ?>

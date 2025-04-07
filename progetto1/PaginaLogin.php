@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_Session['utente'] = $risultatoRow;
                     $_Session['nome'] = $risultatoRow['nome'];
                     sleep(1);
-                    header("Location:prenotaBiglietto.php");
+                    header("Location:PrenotaBiglietto.php");
                     exit();
             }
         }
