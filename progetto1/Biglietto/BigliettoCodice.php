@@ -47,7 +47,7 @@ try {
         echo 'Il prezzo è di : ' . round(CalcolaKmTotaliSubtratta($id_stazione_partenza, $id_stazione_arrivo) * 0.10, 1) . '€';
         echo '<br>';
         echo '<br>';
-        echo '<button>Acquista biglietto con PayStream</button>';
+        echo '<button type="">Acquista biglietto con PayStream</button>';
     }
 
     CommittaTransazione();

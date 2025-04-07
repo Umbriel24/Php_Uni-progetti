@@ -1,5 +1,5 @@
 ﻿<?php
-require_once __DIR__ .'/ComandiSQL/Sql_GetQuery.php';
+require_once __DIR__ . '/SQLProgetto2/Sql_GetQuery.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

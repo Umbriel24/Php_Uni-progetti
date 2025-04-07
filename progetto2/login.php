@@ -1,5 +1,5 @@
 ﻿<?php
-require_once __DIR__ .'/ComandiSQL/Sql_GetQuery.php';
+require_once __DIR__ . '/SQLProgetto2/Sql_GetQuery.php';
 
 
 
@@ -53,11 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <p><a href="index.php">Torna all'index</a></p>
 
-<p>Debug LOGIN ESERCENTE: abunda@gmail.com </p>
-<p>DEBUG PASS:  abundala</p>
+<p>Debug LOGIN ESERCENTE: abcunda@gmail.com </p>
+<p>DEBUG PASS:  abcunda</p>
 <div></div>
-<p>Debug LOGIN ACQUIRENTE: TestAccount@gmail.com </p>
-<p>DEBUG PASS:  1234</p>
+<p>Debug LOGIN ACQUIRENTE: doof@gmail.com </p>
+<p>DEBUG PASS:  654</p>
 
 <form method="POST">
     <div>

@@ -4,19 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Amministrazione funzioni implementate e mostrate in Esercizio">
-      <change afterPath="$PROJECT_DIR$/progetto1/Biglietto/AcquistoBiglietto.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniTratta.php" afterDir="false" />
+    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Manca il collegamento API">
+      <change afterPath="$PROJECT_DIR$/progetto1/api/apiSitoTRENI.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto2/Operazioni/EsercenteOperazioni.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto2/Operazioni/EsercenteServerPOST.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto2/SQLProgetto2/SQL_PostQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progetto2/api/ApiSITOPAGAMENTO.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniStazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniStazione.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsaTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsaTreno.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PaginaEsercizio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaEsercizio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PaginaGestioneCorse.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaEsercizioGestioneCorse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PaginaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/prenotaBiglietto.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PrenotaBiglietto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/ComandiSQL/Sql_GetQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/SQLProgetto2/Sql_GetQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/homepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/homepage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/homepageEsercente.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/homepageEsercente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/registrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/registrazione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/testDb.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +90,7 @@
       <recent name="D:\Vario\PhpDockerFile\progetto1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Vario\PhpDockerFile\progetto2\api" />
       <recent name="D:\Vario\PhpDockerFile\progetto1" />
       <recent name="D:\Vario\PhpDockerFile\progetto2\CartellaDB" />
       <recent name="D:\Vario\PhpDockerFile\progetto2" />
@@ -123,7 +125,7 @@
       <workItem from="1743854778418" duration="13872000" />
       <workItem from="1743892080681" duration="6666000" />
       <workItem from="1743941083453" duration="11624000" />
-      <workItem from="1744026908095" duration="8673000" />
+      <workItem from="1744026908095" duration="12044000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -373,14 +375,21 @@
       <option name="project" value="LOCAL" />
       <updated>1744031224763</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Manca il collegamento API">
+      <option name="closed" value="true" />
+      <created>1744037052288</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1744037052288</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Login con stampa di saldo" />
     <MESSAGE value="Fix  di troppa roba help&#10;&#10;-- Messe funzioni globali&#10;-- Divise le funzionalità" />
     <MESSAGE value="Fix  di troppa roba ancora" />
     <MESSAGE value="Aggiunta lista di movimenti" />
@@ -405,6 +414,7 @@
     <MESSAGE value="Fix" />
     <MESSAGE value="Amministrazione funzioni implementate" />
     <MESSAGE value="Amministrazione funzioni implementate e mostrate in Esercizio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Amministrazione funzioni implementate e mostrate in Esercizio" />
+    <MESSAGE value="Manca il collegamento API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Manca il collegamento API" />
   </component>
 </project>

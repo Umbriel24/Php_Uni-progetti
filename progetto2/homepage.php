@@ -1,5 +1,6 @@
 ﻿<?php
-require 'ComandiSQL/Sql_GetQuery.php';
+require_once 'SQLProgetto2/Sql_GetQuery.php';
+require_once 'SQLProgetto2/SQL_PostQuery.php';
 
 
 if(!isset($_SESSION['id_utente']) && !isset($_SESSION['nome'])){
