@@ -5,8 +5,8 @@ function getRowUtenteById($email){
     $query = "SELECT * FROM progetto1_Utente WHERE email = '$email'";
     $risultato = EseguiQuery($query);
 
-    if ($risultato && !$risultato->EOF) {
-        return $risultato;
+    if($risultato->RecordCount() > 0){
+        return $risultato->FetchRow();
     }
     return false;
 }

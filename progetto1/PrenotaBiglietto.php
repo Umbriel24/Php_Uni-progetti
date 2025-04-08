@@ -15,6 +15,7 @@ if(isset($_GET['payment_result'])) {
 
     if ($DatiSitoPagamento && $DatiSitoPagamento['success']) {
         echo 'Pagamanto effettuato con successo';
+        echo 'Torna indietro';
 
         $prezzo = $DatiSitoPagamento['prezzo'];
         $utenteMail = $DatiSitoPagamento['emailUtente'];
