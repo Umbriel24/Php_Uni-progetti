@@ -47,7 +47,7 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
 
 <section>
     <h3>Convogli creati liberi</h3>
-    <?php StampaConvogliLiberi(); ?>
+    <?php StampaConvogli(); ?>
 </section>
 
 <section>

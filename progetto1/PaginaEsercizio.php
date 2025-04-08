@@ -76,8 +76,8 @@ require_once __DIR__ . '/Amministrazione/FunzioniAmministrazione.php';
 </section>
 
 <section>
-    <?php StampaConvogliLiberi(); ?>
-    <p>Fine lista convogli creati liberi</p>
+    <?php StampaConvogli(); ?>
+    <p>Fine lista convogli creati</p>
 </section>
 
 

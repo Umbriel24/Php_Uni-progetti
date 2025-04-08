@@ -13,7 +13,7 @@ function CreaBigliettoDaiDati($prezzo, $id_rif_utente, $id_convoglio) {
 
     try {
         IniziaTransazione();
-        $posto_biglietto = UpdataPostiConvoglio($id_convoglio);
+        $posto_biglietto = UpdataPostiTreno($id_treno);
         $id_rif_treno = getIdTrenoFromConvoglioRef($id_convoglio);
 
         Insert_progetto1_Biglietto($posto_biglietto, $prezzo, $id_rif_utente, $id_rif_treno);
@@ -36,26 +36,27 @@ function Insert_progetto1_Biglietto($posto_biglietto, $prezzo, $id_rif_utente, $
     EseguiQuery($query);
 }
 
-function UpdataPostiConvoglio($id_convoglioT){
+//Diminuiamo di 1 i posti disponibili
+function UpdataPostiTreno($id_treno){
 
-    $query = "SELECT * FROM progetto1_Convoglio c
-    JOIN progetto1_Treno t on c.id_convoglio = t.id_ref_convoglio 
-    WHERE c.id_convoglio = $id_convoglioT";
+    $query = "SELECT * FROM progetto1_Treno where id_treno = $id_treno";
 
     $result = EseguiQuery($query);
+
     if($result->RecordCount() == 0){
-        Throw new Exception("Errore: Convoglio non trovato con il treno");
+        Throw new Exception("Errore: Treno non trovato. Errore in CreaBiglietto");
     }
 
     $row = $result->FetchRow();
-    $posti_a_sedere = $row['posti_a_sedere'];
-    $id_convoglio = $row['id_convoglio'];
+    $posti_a_sedere = $row['posto_disponibili'];
+
 
     $posti_a_sedere -= 1;
 
-    $query2 = "UPDATE progetto1_Convoglio SET posti_a_sedere =  $posti_a_sedere WHERE id_convoglio = $id_convoglio";
+    $query2 = "UPDATE progetto1_Treno SET posti_disponibili =  $posti_a_sedere WHERE id_treno = $id_treno";
     EseguiQuery($query2);
 
+    //Sarà il numero biglietto acquirente
     $posti_a_sedere += 1;
     return $posti_a_sedere;
 

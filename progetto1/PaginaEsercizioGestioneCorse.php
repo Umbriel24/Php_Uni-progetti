@@ -52,12 +52,12 @@ require_once __DIR__ . '/Amministrazione/FunzioniAmministrazione.php';
 
 <h1>Gestione Corse</h1>
 <section>
-    <h3>Convogli creati liberi</h3>
-    <?php StampaConvogliLiberi(); ?>
+    <h3>Convogli creati</h3>
+    <?php StampaConvogli(); ?>
 </section>
 
 <section>
-    <h3>Convogli in attività</h3>
+    <h3>Convogli con corse attive</h3>
     <?php StampaConvogliInAttivita(); ?>
 </section>
 
@@ -71,8 +71,8 @@ require_once __DIR__ . '/Amministrazione/FunzioniAmministrazione.php';
 
 <div class="container">
     <section>
-        <h3>Crea un treno da un convoglio libero</h3>
-        <form method="POST" action="GestioneCorse/CreaCorsaTreno.php">
+        <h3>Crea un treno da un convoglio</h3>
+        <form method="POST" action="GestioneCorse/CreaCorsa&Treno.php">
             <label> Id Convoglio
                 <input type="number" name="id_convoglio" required>
             </label>
@@ -99,7 +99,8 @@ require_once __DIR__ . '/Amministrazione/FunzioniAmministrazione.php';
         <h3>Elimina treno con le sue tappe</h3>
         <form method="POST" action="GestioneCorse/EliminaCorsaTreno.php">
             <label>id treno da eliminare
-                <input type="number" name="id_treno" required></label>
+                <input type="number" name="id_treno" required>
+            </label>
             <button type="submit">Conferma</button>
         </form>
     </section>

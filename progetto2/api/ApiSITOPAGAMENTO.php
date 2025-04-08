@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $data = $_POST;
         }
 
-        $convoglio_id = $data['convoglio_id'] ?? null;
+        $treno_id = $data['treno_id'] ?? null;
         $prezzoBiglietto = $data['prezzo'] ?? null;
         $utenteEmail = $data['utenteMail'] ?? null;
         $esercenteEmail = $data['esercente'] ?? null;
@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             'message' => $esito ? 'Pagamento completato con successo' : 'Pagamento fallito',
             'prezzo' => $prezzoBiglietto,
         'emailUtente' => $utenteEmail,
-        'id_convoglio' => $convoglio_id,
+        'id_treno' => $id_treno,
         ]);
 
         $encodedData =  json_encode($response);

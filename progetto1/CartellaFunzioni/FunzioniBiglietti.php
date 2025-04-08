@@ -27,3 +27,11 @@ function PrintaBigliettiByIdUtente($id_utente){
         echo '</tr>';
     }
 }
+
+function CheckEsistenzaBigliettiPerIlTreno($id_treno){
+    $query = "SELECT * FROM progetto1_Biglietto WHERE id_rif_treno = $id_treno";
+    $result = EseguiQuery($query);
+    if($result->RecordCount() != 0){
+        Throw new Exception("Errore, il treno ha già biglietti.");
+    }
+}

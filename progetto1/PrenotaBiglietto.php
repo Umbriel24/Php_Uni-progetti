@@ -19,11 +19,11 @@ if(isset($_GET['payment_result'])) {
 
         $prezzo = $DatiSitoPagamento['prezzo'];
         $utenteMail = $DatiSitoPagamento['emailUtente'];
-        $id_convoglio = $DatiSitoPagamento['id_convoglio'];
+        $id_treno = $DatiSitoPagamento['id_treno'];
 
         $id_rif_utente = getIdUtenteByEmail($utenteMail);
 
-        CreaBigliettoDaiDati($prezzo, $id_rif_utente, $id_convoglio);
+        CreaBigliettoDaiDati($prezzo, $id_rif_utente, $id_treno);
         exit();
     } else {
         echo '<div class="error">Pagamento fallito: '.htmlspecialchars($DatiSitoPagamento['error'] ?? 'Errore sconosciuto').'</div>';
@@ -88,6 +88,9 @@ function getIdUtenteByEmail($email_Utente)
                 <input type="number" name="id_stazione_arrivo" required>
             </label>
             <br>
+            <label>Inserisci Il giorno di partenza
+                <input type="datetime-local" name="giorno_partenza" required>
+            </label>
             <button type="submit">Cerca treno</button>
         </form>
 

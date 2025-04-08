@@ -32,9 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     exit();
                     break;
                 default:
+
                     setcookie('id_utente', $risultato['id_utente'], time() + 3600);
-
-
                     if($risultato['id_utente'] <= 0){
                         die("Id non trovato");
                     }

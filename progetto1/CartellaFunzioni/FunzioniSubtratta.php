@@ -96,7 +96,6 @@ function CalcolaPercorsoSubTratte($id_treno, $id_staz_partenza, $id_staz_arrivo,
             $dataOra_arrivoSUBTRATTA = CalcolaTempoArrivoSubtratta($dataOra_partenzaSubtratta, $kmTotaliSUBTRATTA);
 
             Check_CollisioneCorsaTreno($id_stazione_arrivoSUBTRATTA, $id_stazione_partenzaSUBTRATTA, $dataOra_arrivoSUBTRATTA, $dataOra_partenzaSubtratta);
-
             $id_rif_treno = $id_treno;
 
             echo 'Arriva al rigo 66';
@@ -268,5 +267,7 @@ function StampaSubtrattePerStampaTreni()
 
         }
 }
+
+
 
 ?>
