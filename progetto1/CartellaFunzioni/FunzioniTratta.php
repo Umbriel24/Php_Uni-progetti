@@ -11,8 +11,9 @@ function CalcolaPercorsoInteroByIdTreno($id_treno){
     $query1 = "SELECT * FROM progetto1_Subtratta WHERE id_rif_treno = $id_treno";
 }
 
-function CheckEsistenzaTratta($id_stazione_partenza, $id_stazione_arrivo)
+function CheckEsistenzaTratta($id_stazione_partenza, $id_stazione_arrivo, $giorno_partenza)
 {
+    $giorno_partenzaFiltrato = substr($giorno_partenza, 0, 10);
     $query = "SELECT * FROM progetto1_Subtratta WHERE id_stazione_partenza = $id_stazione_partenza";
     $result = EseguiQuery($query);
 
@@ -22,6 +23,12 @@ function CheckEsistenzaTratta($id_stazione_partenza, $id_stazione_arrivo)
     $kmTotali = 0;
 
     while ($row = $result->FetchRow()){
+        //filtriamo il giorno
+        if(substr($row['ora_di_partenza'], 0, 10) != $giorno_partenzaFiltrato){
+            continue;
+        }
+
+
         //Ora prendiamo ogni singolo treno con una partenza a quella stazione e vediamo se ha una destinazione
         //uguale alla stazione di arrivo
         $trenoTemp = $row['id_rif_treno'];
@@ -37,7 +44,11 @@ function CheckEsistenzaTratta($id_stazione_partenza, $id_stazione_arrivo)
     }
 
     if($trenoIndividuato == 0){
-        echo 'Non esiste nessun treno con quelle fermate. Codice 40';
+        echo 'Non esiste nessun treno con quelle fermate. Errore funzione tratta 40';
+        return 0;
+
+    } else if ($ora_partenza >= $ora_arrivo){
+        echo 'Non esiste nessun treno con questi orari. ';
         return 0;
 
     } else {

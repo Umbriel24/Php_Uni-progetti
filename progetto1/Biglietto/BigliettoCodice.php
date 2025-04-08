@@ -7,11 +7,13 @@ require_once __DIR__ . '/../CartellaFunzioni/FunzioniTreno.php';
 require_once __DIR__ . '/../CartellaFunzioni/FunzioniConvoglio.php';
 require_once __DIR__ . '/../CartellaFunzioni/FunzioniLocomotrice.php';
 require_once __DIR__ . '/../CartellaFunzioni/FunzioniTratta.php';
+require_once __DIR__ . '/../Biglietto/CreaBiglietto.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id_stazione_partenza = $_POST["id_stazione_partenza"];
     $id_stazione_arrivo = $_POST["id_stazione_arrivo"];
+    $giorno_partenza = $_POST["giorno_partenza"];
 }
 ?>
 
@@ -30,24 +32,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 try {
     IniziaTransazione();
 
-    $trenoIndividuato = CheckEsistenzaTratta($id_stazione_partenza, $id_stazione_arrivo);
+    $trenoIndividuato = CheckEsistenzaTratta($id_stazione_partenza, $id_stazione_arrivo, $giorno_partenza);
     if($trenoIndividuato == 0){
         echo 'Non esiste nessun treno con quelle fermate.';
         return;
     }
 
 
-    $convoglio_id = getConvoglioById_Treno($trenoIndividuato);
-    $bigliettiTotali = getPostiASedereFromConvoglio($convoglio_id);
+    $treno_id = $trenoIndividuato;
+    $utenteMail = '';
+    $esercenteMail = 'ferrovie@esercizio.it';
+    $prezzoBiglietto = round(CalcolaKmTotaliSubtratta($id_stazione_partenza, $id_stazione_arrivo) * 0.10, 1);
+    $bigliettiTotali = getPostiASedereDisponibiliFromTreno($treno_id);
 
     if($bigliettiTotali > 0){
+        echo '<br>';
+        echo 'Il prezzo è di : ' . $prezzoBiglietto . '€';
+        echo '<br>';
+        echo '<br>';
 
-        echo 'Ci sono biglietti disponibili. ';
+
+        //hidden per il POST //TODO metti api sito uni
+        echo '<form action="http://localhost:41062/www/progetto2/api/ApiSITOPAGAMENTO.php" method="POST">';
+        echo '<input type="hidden" name="treno_id" value="' . $treno_id . '">';
+        echo '<input type="hidden" name="prezzo" value="' . $prezzoBiglietto . '">';
+        echo '<input type="hidden" name="esercente" value="' . $esercenteMail . '">';
+
+        echo '<input type="hidden" name="url_inviante" value="' . $_SERVER['HTTP_REFERER'] .  '">';
+
+
+        echo '<h2>Importante - Devi avere un acconnt registrato su PayStream</h2>';
+        echo '<p>Puoi registrarti qui <a href="">TODO</a></p>';
+        echo '<label>Inserisci Email <input type="email" name="utenteMail" required> </label>';
         echo '<br>';
-        echo 'Il prezzo è di : ' . round(CalcolaKmTotaliSubtratta($id_stazione_partenza, $id_stazione_arrivo) * 0.10, 1) . '€';
-        echo '<br>';
-        echo '<br>';
-        echo '<button>Acquista biglietto con PayStream</button>';
+        echo '<button type="submit">Acquista biglietto con PayStream</button>';
+        echo '</form>';
     }
 
     CommittaTransazione();

@@ -1,5 +1,6 @@
 ﻿<?php
 require_once __DIR__ . '/../CartellaDB/database.php';
+require_once __DIR__ . '/../CartellaFunzioni/FunzioniBiglietti.php';
 require_once __DIR__ . '/../CartellaFunzioni/FunzioniCarrozze.php';
 require_once __DIR__ . '/../CartellaFunzioni/FunzioniStazione.php';
 require_once __DIR__ . '/../CartellaFunzioni/FunzioniSubtratta.php';
@@ -54,13 +55,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dataArrivo = RendiDateTimeCompatibile($dataArrivo);
 
 
-
+        //Se il treno ha già biglietti non si può modificare
+        CheckEsistenzaBigliettiPerIlTreno($id_treno);
 
         //Se arriva qui,  treno e subtratte esistono
         EliminaCorsaSubtrattaByIdTreno($id_treno);
 
+
+
         //Modifichiamo il treno
         ModificaTreno($id_treno, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza, $dataArrivo);
+
+        $id_convoglio = getConvoglioById_Treno($id_treno);
+        $oraPart = $dataOra_partenza;
+        $oraArr = $dataArrivo;
+
+        CheckEsistenzaConvoglioTrenoInQuellaGiornata($id_convoglio, $oraPart, $oraArr);
 
         //Creiamo nuove subtratte
         CalcolaPercorsoSubTratte($id_treno, $id_stazione_partenza, $id_stazione_arrivo, $dataOra_partenza);

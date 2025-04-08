@@ -12,7 +12,7 @@ function getConvogliCreati()
     return EseguiQuery($query);
 }
 
-function StampaConvogliLiberi()
+function StampaConvogli()
 {
     $ConvogliList = getConvogliCreati();
 
@@ -22,9 +22,9 @@ function StampaConvogliLiberi()
 
         $id_temp = $row["id_convoglio"];
 
-        if (CheckConvoglioAttivita($id_temp) == true) {
-            continue;
-        }
+//        if (CheckConvoglioAttivita($id_temp) == true) {
+//            continue;
+//        }
 
         $locomotrice = getlocomotriceBy_ref_locomotrice($row['id_ref_locomotiva']);
         $dataOraTemp = $row['data_ora_creazione'];
@@ -131,6 +131,19 @@ function getPostiASedereFromConvoglio($id_convoglio)
     $result = EseguiQuery($query);
     $row = $result->FetchRow();
     return $row["posti_a_sedere"];
+}
+
+function getPostiASedereDisponibiliFromTreno($id_treno)
+{
+    $query = "SELECT posti_disponibili FROM progetto1_Treno WHERE id_treno = $id_treno";
+    $result = EseguiQuery($query);
+
+    if($result->RecordCount() == 0){
+        Throw new Exception("Posti del treno non trovati. Errore FunzioniConvoglio 142");
+    }
+
+    $row = $result->FetchRow();
+    return $row["posti_disponibili"];
 }
 
 function getConvoglioById_Treno($id_treno){

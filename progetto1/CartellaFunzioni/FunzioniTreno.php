@@ -94,21 +94,26 @@ function CreaTrenoParametrizzato($id_convoglio, $id_s1, $id_s2, $oraPart, $oraAr
 {
     $nome_stazione_partenza = getNomeStazioneFromId($id_s1);
     $nome_stazione_arrivo = getNomeStazioneFromId($id_s2);
+    $posti_disponibili = getPostiASedereFromConvoglio($id_convoglio);
+
+    //Check se esiste già un treno in quella giornata
+    CheckEsistenzaConvoglioTrenoInQuellaGiornata($id_convoglio, $oraPart, $oraArr);
 
     if ($nome_stazione_partenza == $nome_stazione_arrivo) {
         throw new Exception("Errore nei dati. Stazione di partenza e arrivo coincidono");
     }
 
     $query = "INSERT INTO progetto1_Treno 
-          (ora_di_partenza, ora_di_arrivo, nome_stazione_partenza, nome_stazione_arrivo, id_ref_convoglio) 
-          VALUES (?, ?, ?, ?, ?)";
+          (ora_di_partenza, ora_di_arrivo, nome_stazione_partenza, nome_stazione_arrivo, id_ref_convoglio, posti_disponibili) 
+          VALUES (?, ?, ?, ?, ?, ?)";
 
     EseguiQueryConParametri($query, [
         $oraPart,
         $oraArr,
         $nome_stazione_partenza,
         $nome_stazione_arrivo,
-        $id_convoglio
+        $id_convoglio,
+        $posti_disponibili
     ]);
 }
 
@@ -145,4 +150,38 @@ function ModificaTreno($id_treno, $id_staz_partenza, $id_staz_arrivo, $dataPart,
 
 }
 
+
+function CheckEsistenzaConvoglioTrenoInQuellaGiornata($id_convoglio, $oraPart, $oraArr){
+    $query = "SELECT DISTINCT c.ora_di_partenza, c.ora_di_arrivo FROM progetto1_Subtratta c
+    LEFT JOIN progetto1_Treno t on c.id_rif_treno = t.id_treno
+    where t.id_ref_convoglio = $id_convoglio";
+
+    $dataPart = substr($oraPart, 0, 10);
+    $dataArrivo = substr($oraArr, 0, 10);
+
+    $result = EseguiQuery($query);
+    while ($row = $result->fetchRow()) {
+
+        echo $dataPart . " E' il giorno in cui parte";
+        echo '<br>';
+        echo $dataArrivo . " E' il giorno in cui arriva";
+        echo '<br>';
+
+        $dataPartIpotetica = substr($row['ora_di_partenza'], 0, 10);
+        $dataIpoteticaArrivo = substr($row['ora_di_arrivo'], 0, 10);
+
+
+        echo $dataPartIpotetica . " E' il giorno in cui parte lo stesso treno";
+        echo '<br>';
+        echo $dataIpoteticaArrivo . " E' il giorno in cui arriva lo stesso treno";
+        echo '<br>';
+
+
+
+        if($dataPart == $dataPartIpotetica || $dataArrivo == $dataIpoteticaArrivo){
+            Throw new Exception("Impossibile creare un treno. E' già presente un treno in quella giornata.");
+        }
+    }
+    return false;
+}
 ?>

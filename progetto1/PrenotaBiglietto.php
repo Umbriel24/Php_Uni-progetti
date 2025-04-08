@@ -1,12 +1,56 @@
 ﻿<?php
 
-
+require_once __DIR__ . '/Biglietto/CreaBiglietto.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniCarrozze.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniStazione.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniSubtratta.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniTreno.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniConvoglio.php';
 require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
+
+if(isset($_GET['payment_result'])) {
+    $decoded = urldecode($_GET['payment_result']);
+    $DatiSitoPagamento = json_decode($decoded, true);
+
+
+    if ($DatiSitoPagamento && $DatiSitoPagamento['success']) {
+        echo 'Pagamanto effettuato con successo';
+        echo 'Torna indietro';
+
+        $prezzo = $DatiSitoPagamento['prezzo'];
+        $utenteMail = $DatiSitoPagamento['emailUtente'];
+        $id_treno = $DatiSitoPagamento['id_treno'];
+
+        $id_rif_utente = getIdUtenteByEmail($utenteMail);
+
+        if($prezzo == null){
+            Throw new Exception("Errore. Prezzo non spedito nel json");
+        } else if($utenteMail == null){
+            Throw new Exception("Errore. Utente non spedito nel json");
+        } else if($id_treno == null){
+            Throw new Exception("Errore. Prezzo non spedito nel json");
+        }
+
+        CreaBigliettoDaiDati($prezzo, $id_rif_utente, $id_treno);
+        exit();
+    } else {
+        echo '<div class="error">Pagamento fallito: '.htmlspecialchars($DatiSitoPagamento['error'] ?? 'Errore sconosciuto').'</div>';
+    }
+}
+
+//Chiedo scusa
+function getIdUtenteByEmail($email_Utente)
+{
+    $query = "SELECT id_utente FROM progetto1_Utente WHERE email = '$email_Utente'";
+    $result = EseguiQuery($query);
+    if($result->RecordCount() == 0){
+        Throw new Exception("id utente non trovato dall'email");
+    }
+
+    $row = $result->FetchRow();
+    return $row['id_utente'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +96,9 @@ require_once __DIR__ . '/CartellaFunzioni/FunzioniLocomotrice.php';
                 <input type="number" name="id_stazione_arrivo" required>
             </label>
             <br>
+            <label>Inserisci Il giorno di partenza
+                <input type="datetime-local" name="giorno_partenza" required>
+            </label>
             <button type="submit">Cerca treno</button>
         </form>
 

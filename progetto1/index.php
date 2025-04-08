@@ -1,5 +1,6 @@
 ﻿<?php
-session_start();
+require_once __DIR__ . '/CartellaFunzioni/FunzioniTreno.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +20,10 @@ session_start();
     <p>Hai già un account?<a href="PaginaLogin.php">Vai alla pagina di login</a></p>
 
     <p>Non hai ancora un account? <a href="PaginaRegistrazione.php"> Clicca qui per registrarti</a> </p>
+
+
+    <h2>Lista corse dei treni</h2>
+    <?php StampaTreniInCorsaPerIClienti()?>
 </div>
 </body>
 </html>

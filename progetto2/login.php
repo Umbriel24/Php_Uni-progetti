@@ -1,5 +1,5 @@
 ﻿<?php
-require_once __DIR__ .'/ComandiSQL/Sql_GetQuery.php';
+require_once __DIR__ . '/SQLProgetto2/Sql_GetQuery.php';
 
 
 
@@ -7,7 +7,7 @@ require_once __DIR__ .'/ComandiSQL/Sql_GetQuery.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Evitiamo sql injection mettendo tutto in escape
-    $email = trim($_POST["email"]);
+    $email = strtolower(trim($_POST["email"]));
     $password = $_POST["password"];
 
 
@@ -53,11 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <p><a href="index.php">Torna all'index</a></p>
 
-<p>Debug LOGIN ESERCENTE: abunda@gmail.com </p>
-<p>DEBUG PASS:  abundala</p>
+<p>Debug LOGIN ESERCENTE: abcunda@gmail.com </p>
+<p>DEBUG PASS:  abcunda</p>
 <div></div>
-<p>Debug LOGIN ACQUIRENTE: TestAccount@gmail.com </p>
-<p>DEBUG PASS:  1234</p>
+<p>Debug LOGIN ACQUIRENTE: doof@gmail.com </p>
+<p>DEBUG PASS:  654</p>
+
+<p>Debug LOGIN Ferrovia: Ferrovie@esercizio.it </p>
+<p>DEBUG PASS:  777888999</p>
 
 <form method="POST">
     <div>

@@ -4,7 +4,7 @@ require_once __DIR__ . '/ComandiSQL/SQLCreazioneUtente.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Evitiamo sql injection mettendo tutto in escape
-    $email = trim($_POST["email"]);
+    $email = strtolower(trim($_POST["email"]));
     $password = $_POST["password"];
 
 
@@ -15,10 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $risultato = getRowUtenteById($email);
 
     if(!$risultato){
-        echo "Utente non trovato";
+        echo "<h2>Utente non trovato</h2>";
     } else {
-        $risultatoRow = $risultato->FetchRow();
-        if($risultatoRow['password'] == $password){
+        if($risultato['password'] == $password){
             echo 'Login Riuscito';
 
             switch ($email){
@@ -33,10 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     exit();
                     break;
                 default:
-                    $_Session['utente'] = $risultatoRow;
-                    $_Session['nome'] = $risultatoRow['nome'];
+
+                    setcookie('id_utente', $risultato['id_utente'], time() + 3600);
+                    if($risultato['id_utente'] <= 0){
+                        die("Id non trovato");
+                    }
                     sleep(1);
-                    header("Location:PrenotaBiglietto.php");
+                    header("Location:PaginaUtente.php");
                     exit();
             }
         }
@@ -60,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <p>Esercizio: <br>Email: amministrazione@gmail.com <br>Password: 1234</p><br>
 <p>Amministrazione: <br>Email: esercizio@gmail.com <br>Password: 1234</p>
 
-<form method="POST">
+<form method="POST"">
     <div>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
