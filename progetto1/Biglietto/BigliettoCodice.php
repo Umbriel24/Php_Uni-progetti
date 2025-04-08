@@ -41,7 +41,7 @@ try {
 
     $treno_id = $trenoIndividuato;
     $utenteMail = '';
-    $esercenteMail = 'Ferrovie@esercizio.it';
+    $esercenteMail = 'ferrovie@esercizio.it';
     $prezzoBiglietto = round(CalcolaKmTotaliSubtratta($id_stazione_partenza, $id_stazione_arrivo) * 0.10, 1);
     $bigliettiTotali = getPostiASedereDisponibiliFromTreno($treno_id);
 

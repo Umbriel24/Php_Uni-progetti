@@ -23,6 +23,14 @@ if(isset($_GET['payment_result'])) {
 
         $id_rif_utente = getIdUtenteByEmail($utenteMail);
 
+        if($prezzo == null){
+            Throw new Exception("Errore. Prezzo non spedito nel json");
+        } else if($utenteMail == null){
+            Throw new Exception("Errore. Utente non spedito nel json");
+        } else if($id_treno == null){
+            Throw new Exception("Errore. Prezzo non spedito nel json");
+        }
+
         CreaBigliettoDaiDati($prezzo, $id_rif_utente, $id_treno);
         exit();
     } else {

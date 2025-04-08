@@ -13,6 +13,7 @@ function getRowUtenteById($email){
 
 function RegistraUtente($nome, $email, $password)
 {
+    $email = strtolower($email);
     $query = "INSERT INTO progetto1_Utente (nome, email, password) VALUES('$nome', '$email', '$password')";
     $risultato = EseguiQuery($query);
 

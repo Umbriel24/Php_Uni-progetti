@@ -7,7 +7,7 @@ require_once __DIR__ . '/SQLProgetto2/Sql_GetQuery.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Evitiamo sql injection mettendo tutto in escape
-    $email = trim($_POST["email"]);
+    $email = strtolower(trim($_POST["email"]));
     $password = $_POST["password"];
 
 

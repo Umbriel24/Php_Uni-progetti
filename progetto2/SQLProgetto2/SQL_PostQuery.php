@@ -4,6 +4,7 @@ require_once __DIR__ . '/../CartellaDBSito2/database.php';
 // POST QUERY
 function RegistraUtente($nome, $email, $password, $tipo_utente, $codice_fiscale = null, $partita_iva = null){
     //in utente
+    $email = strtolower($email);
     $query = "INSERT INTO progetto2_Utente (nome, email, password) VALUES('$nome', '$email', '$password')";
     $risultato = EseguiQuery($query);
 

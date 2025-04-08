@@ -4,26 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Biscotti">
+    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Santo iddio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/Biglietto/AcquistoBiglietto.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto1/Biglietto/CreaBiglietto.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/Biglietto/CreaBiglietto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniBiglietti.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniBiglietti.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniConvoglio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniSubtratta.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniSubtratta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniTratta.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniTratta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/CartellaFunzioni/FunzioniTreno.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsaTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/CreaCorsa&amp;Treno.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/EliminaCorsaTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/EliminaCorsaTreno.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/GestioneCorse/ModificaCorsaTreno.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/GestioneCorse/ModificaCorsaTreno.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaAmministrazione.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PaginaEsercizio.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaEsercizio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PaginaEsercizioGestioneCorse.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaEsercizioGestioneCorse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto1/ComandiSQL/SQLCreazioneUtente.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/ComandiSQL/SQLCreazioneUtente.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto1/PaginaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaLogin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto1/PrenotaBiglietto.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PrenotaBiglietto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/SQLProgetto2/SQL_PostQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/SQLProgetto2/SQL_PostQuery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progetto2/api/ApiSITOPAGAMENTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/api/ApiSITOPAGAMENTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/api/EsitoAPI.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progetto2/registrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/registrazione.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +132,7 @@
       <workItem from="1744026908095" duration="14787000" />
       <workItem from="1744060412087" duration="12204000" />
       <workItem from="1744114061991" duration="4834000" />
-      <workItem from="1744124742325" duration="2626000" />
+      <workItem from="1744124742325" duration="6215000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -430,14 +422,21 @@
       <option name="project" value="LOCAL" />
       <updated>1744072355028</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Santo iddio">
+      <option name="closed" value="true" />
+      <created>1744127471301</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1744127471301</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Homepage diversificata tra esercente e acquirente" />
     <MESSAGE value="Quasi finito di mettere transazioni" />
     <MESSAGE value="Prodotto semi finito" />
     <MESSAGE value="Login e registrazione sito1 fatto" />
@@ -462,6 +461,7 @@
     <MESSAGE value="Non so che cazzo sto" />
     <MESSAGE value="POGGEROLA" />
     <MESSAGE value="Biscotti" />
-    <option name="LAST_COMMIT_MESSAGE" value="Biscotti" />
+    <MESSAGE value="Santo iddio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Santo iddio" />
   </component>
 </project>
