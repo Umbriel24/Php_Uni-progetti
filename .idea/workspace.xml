@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Santo iddio">
+    <list default="true" id="6692e327-b173-44f2-bd27-85148dd5c2d3" name="Changes" comment="Docker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/Biglietto/BigliettoCodice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/Biglietto/CreaBiglietto.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/Biglietto/CreaBiglietto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/ComandiSQL/SQLCreazioneUtente.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/ComandiSQL/SQLCreazioneUtente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PaginaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PaginaLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto1/PrenotaBiglietto.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto1/PrenotaBiglietto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/SQLProgetto2/SQL_PostQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/SQLProgetto2/SQL_PostQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/api/ApiSITOPAGAMENTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/api/ApiSITOPAGAMENTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/api/EsitoAPI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progetto2/registrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/progetto2/registrazione.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -132,7 +123,8 @@
       <workItem from="1744026908095" duration="14787000" />
       <workItem from="1744060412087" duration="12204000" />
       <workItem from="1744114061991" duration="4834000" />
-      <workItem from="1744124742325" duration="6215000" />
+      <workItem from="1744124742325" duration="8210000" />
+      <workItem from="1744138120816" duration="2961000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -430,15 +422,29 @@
       <option name="project" value="LOCAL" />
       <updated>1744127471301</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Commit finale &#10;Inserimento nel sito">
+      <option name="closed" value="true" />
+      <created>1744131023902</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1744131023902</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Docker">
+      <option name="closed" value="true" />
+      <created>1744140293590</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1744140293590</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Quasi finito di mettere transazioni" />
-    <MESSAGE value="Prodotto semi finito" />
     <MESSAGE value="Login e registrazione sito1 fatto" />
     <MESSAGE value="Robe - Da aggiungere il check dei treni per l'inserimento in orario" />
     <MESSAGE value="Stampa di convogli liberi e locomotive libere" />
@@ -462,6 +468,8 @@
     <MESSAGE value="POGGEROLA" />
     <MESSAGE value="Biscotti" />
     <MESSAGE value="Santo iddio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Santo iddio" />
+    <MESSAGE value="Commit finale &#10;Inserimento nel sito" />
+    <MESSAGE value="Docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docker" />
   </component>
 </project>
